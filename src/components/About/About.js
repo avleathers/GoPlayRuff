@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
-import CameraIcon from '@material-ui/icons/PhotoCamera';
+// import CameraIcon from '@material-ui/icons/PhotoCamera';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -64,7 +64,7 @@ const styles = theme => ({
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
-function Album(props) {
+function About(props) {
   const { classes } = props;
 
   return (
@@ -72,9 +72,9 @@ function Album(props) {
       <CssBaseline />
       <AppBar position="static" className={classes.appBar}>
         <Toolbar>
-          <CameraIcon className={classes.icon} />
+          {/* <CameraIcon className={classes.icon} /> */}
           <Typography variant="h6" color="inherit" noWrap>
-            Album layout
+            About layout
           </Typography>
         </Toolbar>
       </AppBar>
@@ -83,7 +83,7 @@ function Album(props) {
         <div className={classes.heroUnit}>
           <div className={classes.heroContent}>
             <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-              Album layout
+              About layout
             </Typography>
             <Typography variant="h6" align="center" color="textSecondary" paragraph>
               Something short and leading about the collection below—its contents, the creator, etc.
@@ -153,8 +153,8 @@ function Album(props) {
   );
 }
 
-Album.propTypes = {
+About.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Album);
+export default withStyles(styles)(About);
