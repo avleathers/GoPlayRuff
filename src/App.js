@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 import About from "./components/About";
 import CreateAccount from "./components/CreateAccount";
@@ -10,10 +10,10 @@ import "./App.css";
 const App = () => (
   <div className="container-fluid mainContainer">
     <About />
-    <CreateAccount /> 
+    {/* <CreateAccount />  */}
     {/* <Game /> */}
-    <Resources />
-    <SignIn />   
+    {/* <Resources /> */}
+    {/* <SignIn />    */}
   </div>
 );
 
