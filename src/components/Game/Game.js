@@ -1,12 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react';
-import ReactMotion from 'react';
 import {Motion, spring} from 'react-motion';
-
+import _ from "lodash";
 
 const {Component} = React
 const {render} = ReactDOM
-const {Motion, spring} = ReactMotion
 const {range} = _
 
 const tilesStyle = {
@@ -222,4 +220,4 @@ class Puzzle extends Component {
   }
 }
 
-export { default } from "./Game.js";
+export default Puzzle;
