@@ -4,7 +4,7 @@ var mongoose = require("mongoose");
 
 var PORT = 3000;
 
-var User = require("./models/userInfo");
+var User = require("./models/userInfo.js");
 var app = express();
 
 // Configure middleware
@@ -18,63 +18,32 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/(db name)", { useNewUrlParser: true });
-
-
+mongoose.connect("mongodb://localhost/goplayruff", { useNewUrlParser: true });
 
 
 ////////////////////// Routes////////////////////////
 
 // Route to post our form submission to mongoDB via mongoose
+app.post("/submit", function (req, res) {
+    var user = new User(req.body);
+    user.setFullName();
+    user.signupUpdatedDate();
 
-
-
-db.userInfo.create({ name: "User Information"})
-    .then(function(dbuserInfo) {
-        console.log(dbuserInfo)
-    })
-    .catch(function(err) {
-        console.log(err.message);
-    })
-
-
-
-app.post("/submit", function(req, res) {
-  // Create a new user using req.body
-
-  var user = new User(req.body);
-  user.setFullName();
-  user.lastUpdatedDate();
-
-  User.create(user)
-    .then(function(dbUser) {
-      res.json(dbUser);
-    })
-    .catch(function(err) {
-      res.json(err);
-    });
+    User.create(user)
+        .then(function(dbUser) {
+            res.json(dbUser);
+        })
+        .catch(function(err) {
+            res.json(err);
+        });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // Start the server
-app.listen(PORT, function() {
-  console.log("App running on port " + PORT + "!");
-});
+
+db.mongoose.sync({ force: true}).then(function(){
+    app.listen(PORT, function () {
+        console.log("App running on port " + PORT + "!");
+    });
+})
+
