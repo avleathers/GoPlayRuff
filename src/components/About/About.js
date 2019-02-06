@@ -16,7 +16,7 @@ import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
   appBar: {
-    position: 'relative',
+    position: 'sticky',
   },
   icon: {
     marginRight: theme.spacing.unit * 2,
@@ -62,7 +62,7 @@ const styles = theme => ({
   },
 });
 
-const cards = [1, 2, 3, 4];
+const cards = [1];
 
 function About(props) {
   const { classes } = props;
@@ -70,9 +70,8 @@ function About(props) {
   return (
     <React.Fragment>
       <CssBaseline />
-      <AppBar position="static" className={classes.appBar}>
+      <AppBar position="sticky" className={classes.appBar}>
         <Toolbar>
-          {/* <CameraIcon className={classes.icon} /> */}
           <Typography variant="h6" color="inherit" noWrap>
             About layout
           </Typography>
@@ -88,25 +87,12 @@ function About(props) {
             <Typography variant="h6" align="center" color="textSecondary" paragraph>
               Go! Play! Ruff! is a place where people who love dogs can find great dog-friendly resources, and play a fun dog puzzle game.
             </Typography>
-            {/* <div className={classes.heroButtons}>
-              <Grid container spacing={16} justify="center">
-                <Grid item>
-                  <Button variant="contained" color="primary">
-                    Main call to action
-                  </Button>
-                </Grid>
-                <Grid item>
-                  <Button variant="outlined" color="primary">
-                    Secondary action
-                  </Button>
-                </Grid>
-              </Grid>
-            </div> */}
           </div>
         </div>
         <div className={classNames(classes.layout, classes.cardGrid)}>
           {/* End hero unit */}
           <Grid container spacing={40}>
+          <div { flex-flow: row;}
             {cards.map(card => (
               <Grid item key={card} sm={6} md={4} lg={3}>
                 <Card className={classes.card}>
@@ -120,17 +106,24 @@ function About(props) {
                       Missy and Rusty
                     </Typography>
                     <Typography>
-                    Rusty is not a rescue, but he did rescue me. He came into our lives during a very sad time. My Mom had passed away 6 weeks earlier, and our first Wire Fox Terrier followed her 5 weeks later. We got Rusty within a week and it was truly love at first site for both of us. The morning we went to get him, the insurance benefit from my Mom showed up in my bank account it was like her telling me to go get this sweet and beautiful puppy! He was a gift from Mom and Frosty (our first Wire). Wires are so much fun and guaranteed to put a smile on your face and make you laugh. They are determined little devils too, and can easily become fixated on things they want! Seeing a dog on TV always gets Rusty’s attention, and he lets us know it by becoming vocal! He recently became fixated on a stuffed Wire Fox Terrier that had to eventually be put up in a closet, out of site! Rusty is wonderful with children and is very gentle with them. He is a very sweet dog and loves to cuddle and curl up in Mommy or Daddy’s lap. I have loved this breed since I first met “ George”, the Wire Fox Terrier who is the George store namesake and mascot, and I hope to always have a loving Wire Fox Terrier fur-child.
+                      Rusty is not a rescue, but he did rescue me. He came into our lives during a very sad time. My Mom had passed away 6 weeks earlier, and our first Wire Fox Terrier followed her 5 weeks later. We got Rusty within a week and it was truly love at first site for both of us. The morning we went to get him, the insurance benefit from my Mom showed up in my bank account it was like her telling me to go get this sweet and beautiful puppy! He was a gift from Mom and Frosty (our first Wire). Wires are so much fun and guaranteed to put a smile on your face and make you laugh. They are determined little devils too, and can easily become fixated on things they want! Seeing a dog on TV always gets Rusty’s attention, and he lets us know it by becoming vocal! He recently became fixated on a stuffed Wire Fox Terrier that had to eventually be put up in a closet, out of site! Rusty is wonderful with children and is very gentle with them. He is a very sweet dog and loves to cuddle and curl up in Mommy or Daddy’s lap. I have loved this breed since I first met “ George”, the Wire Fox Terrier who is the George store namesake and mascot, and I hope to always have a loving Wire Fox Terrier fur-child.
                     </Typography>
                   </CardContent>
-                  {/* <CardActions>
-                    <Button size="small" color="primary">
-                      View
-                    </Button>
-                    <Button size="small" color="primary">
-                      Edit
-                    </Button>
-                  </CardActions> */}
+                </Card>
+                <Card className={classes.card}>
+                  <CardMedia
+                    className={classes.cardMedia}
+                    image="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22288%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20288%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_164edaf95ee%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_164edaf95ee%22%3E%3Crect%20width%3D%22288%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2296.32500076293945%22%20y%3D%22118.8%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" // eslint-disable-line max-len
+                    title="Heading"
+                  />
+                  <CardContent className={classes.cardContent}>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      Lori and her Labs
+                    </Typography>
+                    <Typography>
+                      Lori has three Labrador Retriever fur-kids!
+                    </Typography>
+                  </CardContent>
                 </Card>
               </Grid>
             ))}

@@ -4,8 +4,13 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^3.9.2",
+<<<<<<< HEAD
     "@material-ui/icons": "^3.0.2",
+=======
+    "express": "^4.16.4",
+>>>>>>> 5f9e4931cc357c7f94fe590226934cb43f94425b
     "mongoose": "^5.4.9",
+    "morgan": "^1.9.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-scripts": "2.1.3",
