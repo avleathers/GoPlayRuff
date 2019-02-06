@@ -14,26 +14,24 @@ import Grid from '@material-ui/core/Grid';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
+import IconButton from '@material-ui/core/IconButton';
 import missyRustyPic from "./Assets/MissyRusty.jpg";
-// import Image from 'material-ui-image'
 
 const styles = theme => ({
     appBar: {
         position: 'sticky',
+        background: 'teal',
     },
     icon: {
         marginRight: theme.spacing.unit * 2,
     },
     heroUnit: {
-        backgroundColor: theme.palette.background.paper,
+        background: '#b2dfdb',
     },
     heroContent: {
         maxWidth: 600,
         margin: '0 auto',
-        padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 6}px`,
-    },
-    heroButtons: {
-        marginTop: theme.spacing.unit * 4,
+        padding: `${theme.spacing.unit * 4}px 0 ${theme.spacing.unit * 3}px`,
     },
     layout: {
         width: 'auto',
@@ -47,6 +45,7 @@ const styles = theme => ({
     },
     cardGrid: {
         padding: `${theme.spacing.unit * 8}px 0`,
+        background: '#e0e0e0',
     },
     card: {
         height: '100%',
@@ -61,7 +60,7 @@ const styles = theme => ({
         flexGrow: 1,
     },
     footer: {
-        backgroundColor: theme.palette.background.paper,
+        backgroundColor: '#b2dfdb',
         padding: theme.spacing.unit * 6,
     },
 });
@@ -97,7 +96,8 @@ function About(props) {
             <CssBaseline />
             <AppBar position="sticky" className={classes.appBar}>
                 <Toolbar>
-                    {/* <CameraIcon className={classes.icon} /> */}
+                <IconButton className={classes.menuButton} color="inherit" aria-label="Create Account">
+                    </IconButton>
                     <Typography variant="h6" color="inherit" noWrap>
                         About layout
           </Typography>
@@ -113,20 +113,6 @@ function About(props) {
                         <Typography variant="h6" align="center" color="textSecondary" paragraph>
                             Go! Play! Ruff! is a place where people who love dogs can find great dog-friendly resources, and play a fun dog puzzle game.
                         </Typography>
-                        <div className={classes.heroButtons}>
-                            <Grid container spacing={16} justify="center">
-                                <Grid item>
-                                    <Button variant="contained" color="primary">
-                                        Main call to action
-                  </Button>
-                                </Grid>
-                                <Grid item>
-                                    <Button variant="outlined" color="primary">
-                                        Secondary action
-                  </Button>
-                                </Grid>
-                            </Grid>
-                        </div>
                     </div>
                 </div>
                 <div className={classNames(classes.layout, classes.cardGrid)}>
