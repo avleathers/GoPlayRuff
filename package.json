@@ -4,14 +4,7 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^3.9.2",
-<<<<<<< HEAD
     "@material-ui/icons": "^3.0.2",
-=======
-    "express": "^4.16.4",
-    "material-ui-image": "^3.1.0",
-    "mongoose": "^5.4.9",
-    "morgan": "^1.9.1",
->>>>>>> cb81d37bf759d4d235229619ea62891ea17e33fb
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-scripts": "2.1.3"
@@ -31,4 +24,4 @@
     "not ie <= 11",
     "not op_mini all"
   ]
- }
+}

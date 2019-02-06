@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react';
 import ReactMotion from 'react';
+import {Motion, spring} from 'react-motion';
 
 
 const {Component} = React
