@@ -1,3 +1,8 @@
+import React from 'react';
+import ReactDOM from 'react';
+import ReactMotion from 'react';
+
+
 const {Component} = React
 const {render} = ReactDOM
 const {Motion, spring} = ReactMotion
@@ -216,4 +221,4 @@ class Puzzle extends Component {
   }
 }
 
-render(<Puzzle />, document.querySelector('#container'))
+export { default } from "./Game.js";

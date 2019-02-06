@@ -6,12 +6,13 @@ import CreateAccount from "./components/CreateAccount";
 import Resources from "./components/Resources";
 import SignIn from "./components/SignIn";
 import "./App.css";
+import Puzzle from "./components/Game";
 
 const App = () => (
   <div className="container-fluid mainContainer">
     <About />
     {/* <CreateAccount />  */}
-    {/* <Game /> */}
+    <Puzzle />
     {/* <Resources /> */}
     {/* <SignIn />    */}
   </div>
