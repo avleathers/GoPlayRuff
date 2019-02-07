@@ -9,6 +9,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import DirectionsIcon from '@material-ui/icons/Directions';
 import CustomizedInputBase from '../CustomizedInputBase'
+//import Search from '../Search'
 
 const styles = {
   root: {
@@ -41,5 +42,4 @@ class Resources extends Component {
     );
   }
 }
-
 export default Resources;

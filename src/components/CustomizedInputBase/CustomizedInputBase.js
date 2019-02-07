@@ -31,15 +31,19 @@ const styles = {
 };
 
 class CustomizedInputBase extends Component{
-  state = { value: "test"};
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: ""
+    };
+  }
+
   handleInputChange = event => {
     // Getting the value and name of the input which triggered the change
+    
     let value = event.target.value;
     const name = event.target.name;
-
-    if (name === "") {
-      value = value.substring(0, 15);
-    }
+    console.log(event.target);
     // Updating the input's state
     this.setState({
       [name]: value
@@ -53,7 +57,7 @@ class CustomizedInputBase extends Component{
       <IconButton className={classes.iconButton} aria-label="Menu">
         <MenuIcon />
       </IconButton>
-      <InputBase className={classes.input} value = {this.state.value} onChange={this.handleInputChange} placeholder="Location" />
+      <InputBase className={classes.input} value = {this.state.value} onChange={this.handleInputChange} placeholder="City, State" name = "value" />
       <IconButton className={classes.iconButton} aria-label="Search">
         <SearchIcon />
       </IconButton>
