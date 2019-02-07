@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import AppBar from '@material-ui/core/AppBar';
-import Button from '@material-ui/core/Button';
-// import CameraIcon from '@material-ui/icons/PhotoCamera';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
@@ -16,6 +14,11 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import missyRustyPic from "./Assets/MissyRusty.jpg";
+import lorisLabsPic from "./Assets/LorisLabs.jpg";
+import taePoodlePic from "./Assets/TaePoodle.jpg";
+import colinWheatenPic from "./Assets/ColinWheaten.jpg";
+import CreateAccount from "../CreateAccount";
+import SignIn from "../SignIn";
 
 const styles = theme => ({
     appBar: {
@@ -69,20 +72,20 @@ const cards = [
     {
         img: missyRustyPic,
         title: "Missy and Rusty",
-        text: "Rusty is not a rescue, but he did rescue me. He came into our lives during a very sad time. My Mom had passed away 6 weeks earlier, and our first Wire Fox Terrier followed her 5 weeks later. We got Rusty within a week and it was truly love at first site for both of us. Wires are so much fun and guaranteed to put a smile on your face and make you laugh. They are determined little devils too, and can easily become fixated on things they want! Seeing a dog on TV always gets Rusty’s attention, and he lets us know it by becoming vocal! Rusty is wonderful with children and is very gentle with them. He is a very sweet dog and loves to cuddle and curl up in Mommy or Daddy’s lap. I have loved this breed since I first met “ George”, the Wire Fox Terrier who is the George store namesake and mascot, and I hope to always have a loving Wire Fox Terrier fur-child."
+        text: "Rusty is not a rescue, but he did rescue me. He came into our lives during a very sad time right after the loss of my Mom and our first Wire Fox Terrier. Rusty joined our family within a week and it was truly love at first site. Wires are so much fun and guaranteed to put a smile on your face and make you laugh. Rusty is a very sweet dog and loves to cuddle and curl up in Mommy or Daddy’s lap. I hope to always have a loving Wire Fox Terrier fur-child."
     },
     {
-        img: missyRustyPic,
+        img: lorisLabsPic,
         title: "Lori's  Labs",
-        text: "Text for Lori and her labrador retrievers story."
+        text: "The 2 brown labs are my grand-dogs. Jude and Buddy. Leo is a 10 year old rescue from Ohio, is the guy with his tongue out.  He has a new titanium plated in his knee.  Bronco is the lab on my left and his brother buster to my right scratching."
     },
     {
-        img: missyRustyPic,
+        img: taePoodlePic,
         title: "Tae and Poodle",
         text: "Text for Tae and his poodle's story."
     },
     {
-        img: missyRustyPic,
+        img: colinWheatenPic,
         title: "Colin and Keeva",
         text: "Text for Colin and Keeva's story."
     }
@@ -100,8 +103,10 @@ function About(props) {
                     </IconButton>
                     <Typography variant="h6" color="inherit" noWrap>
                         About layout
-          </Typography>
+                    </Typography>
                 </Toolbar>
+                <CreateAccount />
+                <SignIn />    
             </AppBar>
             <main>
                 {/* Hero unit */}
@@ -144,16 +149,6 @@ function About(props) {
                     </Grid>
                 </div>
             </main>
-            {/* Footer */}
-            <footer className={classes.footer}>
-                <Typography variant="h6" align="center" gutterBottom>
-                    Go! Play! Ruff!
-        </Typography>
-                <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-                “Once you have had a wonderful dog, a life without one, is a life diminished.” Dean Koontz (author, Whispers)
-        </Typography>
-            </footer>
-            {/* End footer */}
         </React.Fragment>
     );
 }
