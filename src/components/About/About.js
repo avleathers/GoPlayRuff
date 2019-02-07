@@ -101,9 +101,9 @@ function About(props) {
                 <Toolbar>
                 <IconButton className={classes.menuButton} color="inherit" aria-label="Create Account">
                     </IconButton>
-                    <Typography variant="h6" color="inherit" noWrap>
+                    {/* <Typography variant="h6" color="inherit" noWrap>
                         About layout
-                    </Typography>
+                    </Typography> */}
                 </Toolbar>
                 <CreateAccount />
                 <SignIn />    

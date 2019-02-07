@@ -23,7 +23,7 @@ export default class FormDialog extends React.Component {
   render() {
     return (
       <div>
-        <Button variant="outlined" color="primary" onClick={this.handleClickOpen}>
+        <Button variant="outlined" className="text-right" onClick={this.handleClickOpen}>
           Create Account
         </Button>
         <Dialog
@@ -75,6 +75,7 @@ export default class FormDialog extends React.Component {
             </Button>
             <Button onClick={this.handleClose} color="primary">
               Create Account
+              {/* Add code to send data to the database */}
             </Button>
           </DialogActions>
         </Dialog>
