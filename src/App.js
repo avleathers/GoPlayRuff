@@ -1,28 +1,21 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import About from "./components/About";
+import CreateAccount from "./components/CreateAccount";
+import Game from "./components/Game";
+import Resources from "./components/Resources";
+import SignIn from "./components/SignIn";
+import "./App.css";
+import Puzzle from "./components/Game/Game";
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            <code>Lori's test Code</code>
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
+const App = () => (
+  <div className="container-fluid mainContainer">
+    <About />
+    <CreateAccount /> 
+    <Game />
+    {/* <Resources /> */}
+    {/* <SignIn />    */}
+  </div>
+);
 
 export default App;
