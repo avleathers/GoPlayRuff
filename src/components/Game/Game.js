@@ -2,11 +2,26 @@ import React from 'react';
 import ReactDOM from 'react';
 import {Motion, spring} from 'react-motion';
 import _ from "lodash";
-// import img from "./assets"
+import image_part_001 from "./Assets/image_part_001.jpg"
+import image_part_002 from "./Assets/image_part_002.jpg"
+import image_part_003 from "./Assets/image_part_003.jpg"
+import image_part_004 from "./Assets/image_part_004.jpg"
+import image_part_005 from "./Assets/image_part_005.jpg"
+import image_part_006 from "./Assets/image_part_006.jpg"
+import image_part_007 from "./Assets/image_part_007.jpg"
+import image_part_008 from "./Assets/image_part_008.jpg"
+
+
 
 const {Component} = React
 const {render} = ReactDOM
 const {range} = _
+
+const images = [
+  image_part_001, image_part_002, image_part_003, image_part_004, image_part_005, image_part_006, image_part_007, image_part_008
+];
+  
+
 
 const tilesStyle = {
   listStyle: 'none',
@@ -16,11 +31,10 @@ const tilesStyle = {
 }
 
 const tileStyle = {
-  backgroundColor: 'grey',
+  backgroundImage:  "images[0]",
   boxShadow: 'inset 0 0 1px 0 black',
   boxSizing: 'border-box',
   display: 'block',
-  padding: 6,
   position: 'absolute'
 }
 
@@ -115,7 +129,7 @@ class Tile extends Component {
   }
   
   render () {
-    const {hole, number, index, rows, cols, width, height} = this.props
+    const {hole, number, index, rows, cols, width, height, images} = this.props
     const matrixPos = getMatrixPosition(index, rows, cols)
     const visualPos = getVisualPosition(matrixPos, width, height)
     const motionStyle = {
@@ -135,7 +149,10 @@ class Tile extends Component {
           <li style={{...style, transform: `translate3d(${translateX}px, ${translateY}px, 0)`}}
             onClick={this.handleClick}
             >
-            {number}
+           
+            <img src={this.props.image} width={100} height={100} />
+            
+           
           </li>
         )}
       </Motion>
@@ -196,7 +213,7 @@ class Tiles extends Component {
         <ul style={style}>
           {numbers.map((number, index) => (
             <Tile {...this.props} index={index} number={number} key={number}
-              width={pieceWidth} height={pieceHeight}
+              width={pieceWidth} height={pieceHeight} image={images[number]}
               onClick={this.handleTileClick}
             />
           ))}
