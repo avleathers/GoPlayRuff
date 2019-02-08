@@ -6,6 +6,8 @@
     "@material-ui/core": "^3.9.2",
     "@material-ui/icons": "^3.0.2",
     "lodash": "^4.17.11",
+    "mongoose": "^5.4.10",
+    "morgan": "^1.9.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-image-crop": "^6.0.12",

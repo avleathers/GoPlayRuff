@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react';
 import {Motion, spring} from 'react-motion';
 import _ from "lodash";
+// import img from "./assets"
 
 const {Component} = React
 const {render} = ReactDOM
