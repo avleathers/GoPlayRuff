@@ -6,10 +6,24 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import axios from 'axios';
 
-export default class FormDialog extends React.Component {
+
+axios.post("/users", {
+  firstName: '',
+  lastName: '',
+  username: '',
+  password: '',
+  email: ''
+});
+
+class CreateAccount extends React.Component {
   state = {
     open: false,
+    firstName: "",
+    lastName: "",
+    username: "",
+    password: ""
   };
 
   handleClickOpen = () => {
@@ -19,6 +33,30 @@ export default class FormDialog extends React.Component {
   handleClose = () => {
     this.setState({ open: false });
   };
+
+  //  MISSY:  New code to get the value and name of the input which triggered the create
+
+  handleInputCreate = event => {
+    const { name, value } = event.target;
+
+    // Updating the input's state
+    this.setState({
+      [name]: value
+    });
+  };
+
+  handleFormSubmit = event => {
+    // Preventing the default behavior of the form submit (which is to refresh the page)
+    event.preventDefault();
+
+    // Alert the user their first and last name, clear `this.state.firstName` and `this.state.lastName`, clearing the inputs
+    alert(`Hello ${this.state.firstName} ${this.state.lastName}`);
+    this.setState({
+      firstName: "",
+      lastName: ""
+    });
+  };
+
 
   render() {
     return (
@@ -73,9 +111,9 @@ export default class FormDialog extends React.Component {
             <Button onClick={this.handleClose} color="primary">
               Cancel
             </Button>
+            {/* MISSY: added code to send data to the database */}
             <Button onClick={this.handleClose} color="primary">
               Create Account
-              {/* Add code to send data to the database */}
             </Button>
           </DialogActions>
         </Dialog>
@@ -83,3 +121,5 @@ export default class FormDialog extends React.Component {
     );
   }
 }
+
+export default CreateAccount;

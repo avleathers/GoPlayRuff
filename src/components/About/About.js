@@ -28,6 +28,10 @@ const styles = theme => ({
     icon: {
         marginRight: theme.spacing.unit * 2,
     },
+    menuButton: {
+        flexDirection: 'row',
+    },
+
     heroUnit: {
         background: '#b2dfdb',
     },
