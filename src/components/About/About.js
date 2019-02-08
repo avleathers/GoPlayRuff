@@ -12,7 +12,6 @@ import Grid from '@material-ui/core/Grid';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
-import IconButton from '@material-ui/core/IconButton';
 import missyRustyPic from "./Assets/MissyRusty.jpg";
 import lorisLabsPic from "./Assets/LorisLabs.jpg";
 import taePoodlePic from "./Assets/TaePoodle.jpg";
@@ -23,20 +22,17 @@ import SignIn from "../SignIn";
 const styles = theme => ({
     appBar: {
         position: 'sticky',
-        background: 'green',
-        // flexDirection: 'row',
+        background: '#66bb6a',
     },
-    icon: {
-        marginRight: theme.spacing.unit * 2,
+    
+    menuButton: {
+        flexDirection: 'row',
+        align: 'right',
+        justify: 'flex-end',
     },
-    // menuButton: {
-    //     flexDirection: 'row',
-    //     align: 'right',
-    //     justify: 'flex-end',
-    // },
 
     heroUnit: {
-        background: '#b2dfdb',
+        background: '#c8e6c9',
     },
     heroContent: {
         maxWidth: 600,
@@ -70,7 +66,7 @@ const styles = theme => ({
         flexGrow: 1,
     },
     footer: {
-        backgroundColor: '#b2dfdb',
+        backgroundColor: 'green',
         padding: theme.spacing.unit * 6,
     },
 });
@@ -105,13 +101,15 @@ function About(props) {
         <React.Fragment>
             <CssBaseline />
             <AppBar position="sticky" className={classes.appBar}>
-                <Toolbar>
-                    {/* <IconButton className={classes.menuButton} color="inherit" aria-label="Create Account">
-                    </IconButton> */}
-                    <Typography component="h1" variant="h2" display="inline-block" color="textPrimary" gutterBottom>
+                <Grid
+                    container
+                    direction="row"
+                    justify="center"
+                    alignItems="center">
+                    <Typography component="h1" variant="h2" display="inline-block" color="textPrimary">
                         Go! Play! Ruff!
                     </Typography>
-                </Toolbar>
+                </Grid>
                 <Grid justify="flex-end" // Add it here :)
                     container
                     spacing={24} container

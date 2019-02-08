@@ -6,7 +6,7 @@ import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
     footer: {
-        backgroundColor: '#b2dfdb',
+        backgroundColor: '#66bb6a',
         padding: theme.spacing.unit * 6,
     },
 });
