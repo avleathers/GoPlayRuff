@@ -23,26 +23,49 @@ export default class FormDialog extends React.Component {
   render() {
     return (
       <div>
-        <Button variant="outlined" color="primary" onClick={this.handleClickOpen}>
-          Open form dialog
+        <Button variant="outlined" className="text-right" onClick={this.handleClickOpen}>
+          Create Account
         </Button>
         <Dialog
           open={this.state.open}
           onClose={this.handleClose}
           aria-labelledby="form-dialog-title"
         >
-          <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
+          <DialogTitle id="form-dialog-title">Create Account</DialogTitle>
           <DialogContent>
             <DialogContentText>
-              To subscribe to this website, please enter your email address here. We will send
-              updates occasionally.
+              To create an Account, please enter your First Name, Last Name, a User Name, and a Password.
             </DialogContentText>
             <TextField
               autoFocus
               margin="dense"
-              id="name"
-              label="Email Address"
-              type="email"
+              id="firstName"
+              label="First Name"
+              type="string"
+              fullWidth
+            />
+            <TextField
+              autoFocus
+              margin="dense"
+              id="lastName"
+              label="Last Name"
+              type="string"
+              fullWidth
+            />
+            <TextField
+              autoFocus
+              margin="dense"
+              id="username"
+              label="User Name"
+              type="string"
+              fullWidth
+            />
+            <TextField
+              autoFocus
+              margin="dense"
+              id="password"
+              label="Password"
+              type="string"
               fullWidth
             />
           </DialogContent>
@@ -51,7 +74,8 @@ export default class FormDialog extends React.Component {
               Cancel
             </Button>
             <Button onClick={this.handleClose} color="primary">
-              Subscribe
+              Create Account
+              {/* Add code to send data to the database */}
             </Button>
           </DialogActions>
         </Dialog>
