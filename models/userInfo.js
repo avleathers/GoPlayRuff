@@ -1,73 +1,129 @@
-var mongoose = require("mongoose");
-//
-var Schema = mongoose.Schema;
-//
-var UserSchema = new Schema({
-
-    firstName: {
-        type: String,
-        trim: true,
-        required: "First Name is Required"
-    },
-
-    lastName: {
-        type: String,
-        trim: true,
-        required: "Last Name is Required"
-    },
-
-    username: {
-        type: String,
-        trim: true,
-        required: "Username is Required"
-    },
-
-    password: {
-        type: String,
-        trim: true,
-        required: "Password is Required",
-        validate: [
-            function (input) {
-                return input.length >= 6;
-            },
-            "Password must be longer than 6 characters."
-        ]
-    },
-
-    email: {
-        type: String,
-        unique: true,
-        match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
-    },
+const express = require("express");
+const logger = require("morgan");
+const mongoose = require("mongoose");
+//const axios = require("axios");
 
 
-    userCreated: {
-        type: Date,
-        default: Date.now
-    },
+const PORT = 3000;
 
-    fullName: String
+// const User = require("./models/userInfo.js");
+// const Score = require("./models/userScore.js")
+const app = express();
+const db = require("./models")
+//require("./routes/user_api")(app);
 
+// Configure middleware
+
+// Use morgan logger for logging requests
+app.use(logger("dev"));
+// Parse request body as JSON
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+// Make public a static folder
+app.use(express.static("public"));
+
+
+//require("./routes/user_api.js")(api);
+// Connect to the Mongo DB
+mongoose.connect("mongodb://localhost/goplayruff", { useNewUrlParser: true });
+
+
+
+
+////////////////////// Routes////////////////////////
+
+app.get("/users", function(req, res) {
+ db.userInfo.find({})
+ .then(function(dbUser) {
+   res.json(dbUser);
+ })
+ .catch(function(err) {
+   res.json(err);
+ });
 });
 
 
-/////// Instance Methods for fullname ///////////
-
-UserSchema.methods.setFullName = function () {
-    this.fullName = this.firstName + " " + this.lastName;
-    return this.fullName;
-};
-
-UserSchema.methods.signupUpdatedDate = function () {
-    this.lastUpdated = Date.now();
-    return this.lastUpdated;
-};
 
 
+app.post("/", function(req, res) {
+ db.userInfo.create(req.body)
+   .then(function(dbUser){
+     return db.userInfo.findOneAndUpdate({}, { $push: { users: dbUser._id}}, { new: true});
+   })
+   .then(function(dbUser) {
+     res.json(dbUser);
+   })
+   .catch(function(err) {
+     res.json(err);
+   });
+})
+
+///////////////////////// Axios /////////////////////////
+
+
+// axios.get("/users")
+//   .then(function(response) {
+//     console.log(response);
+//   })
+//   .catch(function (error) {
+//     console.log(error);
+//   });
+
+
+
+// axios.post("/users", {
+//   firstName: '',
+//   lastName: '',
+//   username: '',
+//   password: '',
+//   email: ''
+// });
+
+// axios({
+
+// })
 
 
 
 
+// app.post("/", function (req, res) {
+//   console.log(req.body);
 
-var User = mongoose.model("User", UserSchema);
-module.exports = User;
+//   const user = new User(req.body);
+//   user.setFullName();
+//   // user.accountUpdatedDate();
+
+//   User.create(user)
+//     .then(function (dbUser) {
+//       res.json(dbUser);
+//     })
+//     .catch(function (err) {
+//       res.json(err);
+//     });
+// });
+
+
+
+// app.delete("/api/users/:id", function (req, res) {
+//   console.log(req.body);
+
+//   const user = new User(req.body);
+//   user.setFullName();
+//   // user.accountUpdatedDate();
+
+//   db.User.delete(user)
+//     .then(function (dbUser) {
+//       res.json(dbUser);
+//     })
+//     .catch(function (err) {
+//       res.json(err);
+//     });
+// });
+
+// Start the server
+
+app.listen(PORT, function () {
+ console.log("App running on port " + PORT + ".");
+});
+
+

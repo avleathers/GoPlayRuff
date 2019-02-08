@@ -68,7 +68,6 @@ app.post("/submit", function (req, res) {
 
 // Start the server
 
-//db.mongoose.sync({ force: true}).then(function(){
-app.listen(PORT, function () {
-            console.log("App running on port " + PORT + "!");
-});
+    app.listen(PORT, function () {
+        console.log("App running on port " + PORT + "!");
+    });
