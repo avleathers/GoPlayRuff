@@ -995,6 +995,13 @@
   resolved "https://registry.yarnpkg.com/@types/q/-/q-1.5.1.tgz#48fd98c1561fe718b61733daed46ff115b496e18"
   integrity sha512-eqz8c/0kwNi/OEHQfvIuJVLTst3in0e7uTKeuY+WL/zfKn0xVujOTp42bS/vUUokhK5P2BppLd9JXMOMHcgbjA==
 
+"@types/react-image-crop@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@types/react-image-crop/-/react-image-crop-3.0.1.tgz#b9377c469e5586f2253de51af8c999406a9a6da0"
+  integrity sha512-ztTGbTPmYgw7hXZfiB/aGJslX3GtuujcW58xoOO8MpreA0iq+J0LWD+0a42kcRizdMuMqANH41J8ydVJoks3tA==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-transition-group@^2.0.8":
   version "2.0.15"
   resolved "https://registry.yarnpkg.com/@types/react-transition-group/-/react-transition-group-2.0.15.tgz#e5ee3fe558832e141cc6041bdd54caea7b787af8"
@@ -8345,6 +8352,13 @@ react-event-listener@^0.6.2:
     "@babel/runtime" "^7.2.0"
     prop-types "^15.6.0"
     warning "^4.0.1"
+
+react-image-crop@^6.0.12:
+  version "6.0.12"
+  resolved "https://registry.yarnpkg.com/react-image-crop/-/react-image-crop-6.0.12.tgz#65e3dc22fb663ed41d5c25ec49ba3775b020ec9b"
+  integrity sha512-ngV/hMcyXyTyIcnzNA2fLZU8xoEOq7VT9Vvy7n2QThRBWy1CpmCRLJ+Kn5xg6CEZNe8HLikS6cq/uVjf97VLdg==
+  dependencies:
+    "@types/react-image-crop" "^3.0.1"
 
 react-is@^16.6.3, react-is@^16.7.0:
   version "16.8.1"
