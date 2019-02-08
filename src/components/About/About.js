@@ -2,9 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import AppBar from '@material-ui/core/AppBar';
-import Button from '@material-ui/core/Button';
-// import CameraIcon from '@material-ui/icons/PhotoCamera';
 import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -13,26 +12,29 @@ import Grid from '@material-ui/core/Grid';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
-import pic from "./Assets/MissyRusty.jpg";
-// import Image from 'material-ui-image'
+import IconButton from '@material-ui/core/IconButton';
+import missyRustyPic from "./Assets/MissyRusty.jpg";
+import lorisLabsPic from "./Assets/LorisLabs.jpg";
+import taePoodlePic from "./Assets/TaePoodle.jpg";
+import colinWheatenPic from "./Assets/ColinWheaten.jpg";
+import CreateAccount from "../CreateAccount";
+import SignIn from "../SignIn";
 
 const styles = theme => ({
     appBar: {
         position: 'sticky',
+        background: 'teal',
     },
     icon: {
         marginRight: theme.spacing.unit * 2,
     },
     heroUnit: {
-        backgroundColor: theme.palette.background.paper,
+        background: '#b2dfdb',
     },
     heroContent: {
         maxWidth: 600,
         margin: '0 auto',
-        padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 6}px`,
-    },
-    heroButtons: {
-        marginTop: theme.spacing.unit * 4,
+        padding: `${theme.spacing.unit * 4}px 0 ${theme.spacing.unit * 3}px`,
     },
     layout: {
         width: 'auto',
@@ -46,6 +48,7 @@ const styles = theme => ({
     },
     cardGrid: {
         padding: `${theme.spacing.unit * 8}px 0`,
+        background: '#e0e0e0',
     },
     card: {
         height: '100%',
@@ -53,18 +56,40 @@ const styles = theme => ({
         flexDirection: 'column',
     },
     cardMedia: {
-        paddingTop: '56.25%', // 16:9
+        paddingTop: '100%', // 16:9
+        height: '100%',
     },
     cardContent: {
         flexGrow: 1,
     },
     footer: {
-        backgroundColor: theme.palette.background.paper,
+        backgroundColor: '#b2dfdb',
         padding: theme.spacing.unit * 6,
     },
 });
 
-const cards = [1, 2, 3, 4];
+const cards = [
+    {
+        img: missyRustyPic,
+        title: "Missy and Rusty",
+        text: "Rusty is not a rescue, but he did rescue me. He came into our lives during a very sad time right after the loss of my Mom and our first Wire Fox Terrier. Rusty joined our family within a week and it was truly love at first site. Wires are so much fun and guaranteed to put a smile on your face and make you laugh. Rusty is a very sweet dog and loves to cuddle and curl up in Mommy or Daddy’s lap. I hope to always have a loving Wire Fox Terrier fur-child."
+    },
+    {
+        img: lorisLabsPic,
+        title: "Lori's  Labs",
+        text: "The 2 brown labs are my grand-dogs. Jude and Buddy. Leo is a 10 year old rescue from Ohio, is the guy with his tongue out.  He has a new titanium plated in his knee.  Bronco is the lab on my left and his brother buster to my right scratching."
+    },
+    {
+        img: taePoodlePic,
+        title: "Tae and Poodle",
+        text: "Text for Tae and his poodle's story."
+    },
+    {
+        img: colinWheatenPic,
+        title: "Colin and Keeva",
+        text: "Text for Colin and Keeva's story."
+    }
+];
 
 function About(props) {
     const { classes } = props;
@@ -72,13 +97,16 @@ function About(props) {
     return (
         <React.Fragment>
             <CssBaseline />
-            <AppBar position="static" className={classes.appBar}>
+            <AppBar position="sticky" className={classes.appBar}>
                 <Toolbar>
-                    {/* <CameraIcon className={classes.icon} /> */}
-                    <Typography variant="h6" color="inherit" noWrap>
+                <IconButton className={classes.menuButton} color="inherit" aria-label="Create Account">
+                    </IconButton>
+                    {/* <Typography variant="h6" color="inherit" noWrap>
                         About layout
-          </Typography>
+                    </Typography> */}
                 </Toolbar>
+                <CreateAccount />
+                <SignIn />    
             </AppBar>
             <main>
                 {/* Hero unit */}
@@ -86,56 +114,34 @@ function About(props) {
                     <div className={classes.heroContent}>
                         <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
                             Go! Play! Ruff!
-            </Typography>
+                        </Typography>
                         <Typography variant="h6" align="center" color="textSecondary" paragraph>
                             Go! Play! Ruff! is a place where people who love dogs can find great dog-friendly resources, and play a fun dog puzzle game.
-            </Typography>
-                        <div className={classes.heroButtons}>
-                            <Grid container spacing={16} justify="center">
-                                <Grid item>
-                                    <Button variant="contained" color="primary">
-                                        Main call to action
-                  </Button>
-                                </Grid>
-                                <Grid item>
-                                    <Button variant="outlined" color="primary">
-                                        Secondary action
-                  </Button>
-                                </Grid>
-                            </Grid>
-                        </div>
+                        </Typography>
                     </div>
                 </div>
                 <div className={classNames(classes.layout, classes.cardGrid)}>
                     {/* End hero unit */}
                     <Grid container spacing={40}>
-                        {cards.map(card => (
-                            <Grid item key={card} sm={6} md={4} lg={3}>
+                        {cards.map((card, i) => (
+                            <Grid item key={i} sm={6} md={4} lg={3}>
                                 <Card className={classes.card}>
-                                    {/* <div>
-                                        <img src={pic}
+                                    <CardActionArea>
+                                        <CardMedia
+                                            className={classes.cardMedia}
+                                            image={card.img}
+                                            title={card.title}
                                         />
-                                    </div>    */}
-                                    <CardMedia
-                                        className={classes.cardMedia}
-                                        img src={pic}
-                                        title="Missy and Rusty"
-                                        />
-                                    <CardContent className={classes.cardContent}>
-                                        <Typography gutterBottom variant="h5" component="h2">
-                                            Missy and Rusty
+                                        <CardContent className={classes.cardContent}>
+                                            <Typography gutterBottom variant="h5" component="h2">
+                                                {card.title}
                                     </Typography>
-                                        <Typography>
-                                            Rusty is not a rescue, but he did rescue me. He came into our lives during a very sad time. My Mom had passed away 6 weeks earlier, and our first Wire Fox Terrier followed her 5 weeks later. We got Rusty within a week and it was truly love at first site for both of us. Wires are so much fun and guaranteed to put a smile on your face and make you laugh. They are determined little devils too, and can easily become fixated on things they want! Seeing a dog on TV always gets Rusty’s attention, and he lets us know it by becoming vocal! Rusty is wonderful with children and is very gentle with them. He is a very sweet dog and loves to cuddle and curl up in Mommy or Daddy’s lap. I have loved this breed since I first met “ George”, the Wire Fox Terrier who is the George store namesake and mascot, and I hope to always have a loving Wire Fox Terrier fur-child.
-                    </Typography>
-                                    </CardContent>
+                                            <Typography>
+                                                {card.text}
+                                        </Typography>
+                                        </CardContent>
+                                    </CardActionArea>
                                     <CardActions>
-                                        <Button size="small" color="primary">
-                                            View
-                    </Button>
-                                        <Button size="small" color="primary">
-                                            Edit
-                    </Button>
                                     </CardActions>
                                 </Card>
                             </Grid>
@@ -143,16 +149,6 @@ function About(props) {
                     </Grid>
                 </div>
             </main>
-            {/* Footer */}
-            <footer className={classes.footer}>
-                <Typography variant="h6" align="center" gutterBottom>
-                    Footer
-        </Typography>
-                <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-                    Something here to give the footer a purpose!
-        </Typography>
-            </footer>
-            {/* End footer */}
         </React.Fragment>
     );
 }

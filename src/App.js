@@ -1,19 +1,17 @@
 import React from 'react';
 import './App.css';
 import About from "./components/About";
-import CreateAccount from "./components/CreateAccount";
-// import Game from "./components/Game";
-import Resources from "./components/Resources";
-import SignIn from "./components/SignIn";
+import Game from "./components/Game";
+import Footer from "./components/Footer";
 import "./App.css";
 
 const App = () => (
   <div className="container-fluid mainContainer">
+  
     <About />
-    {/* <CreateAccount />  */}
-    {/* <Game /> */}
+    <Game />
     {/* <Resources /> */}
-    {/* <SignIn />    */}
+    <Footer />
   </div>
 );
 
