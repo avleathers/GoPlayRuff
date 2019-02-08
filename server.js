@@ -59,54 +59,6 @@ app.post("/", function(req, res) {
 
 
 
-// app.post("/", function (req, res) {
-//   console.log(req.body);
-
-//   const user = new User(req.body);
-//   user.setFullName();
-//   // user.accountUpdatedDate();
-
-//   User.create(user)
-//     .then(function (dbUser) {
-//       res.json(dbUser);
-//     })
-//     .catch(function (err) {
-//       res.json(err);
-//     });
-// });
-
-
-
-// app.delete("/api/users/:id", function (req, res) {
-//   console.log(req.body);
-
-//   const user = new User(req.body);
-//   user.setFullName();
-//   // user.accountUpdatedDate();
-
-//   db.User.delete(user)
-//     .then(function (dbUser) {
-//       res.json(dbUser);
-//     })
-//     .catch(function (err) {
-//       res.json(err);
-//     });
-// });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // Start the server
 
