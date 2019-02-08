@@ -24,16 +24,16 @@ const styles = theme => ({
     appBar: {
         position: 'sticky',
         background: 'green',
-        flexDirection: 'row',
+        // flexDirection: 'row',
     },
     icon: {
         marginRight: theme.spacing.unit * 2,
     },
-    menuButton: {
-        flexDirection: 'row',
-        align: 'right',
-        justify: 'flex-end',
-    },
+    // menuButton: {
+    //     flexDirection: 'row',
+    //     align: 'right',
+    //     justify: 'flex-end',
+    // },
 
     heroUnit: {
         background: '#b2dfdb',
@@ -106,14 +106,21 @@ function About(props) {
             <CssBaseline />
             <AppBar position="sticky" className={classes.appBar}>
                 <Toolbar>
-                {/* <IconButton className={classes.menuButton} color="inherit" aria-label="Create Account">
+                    {/* <IconButton className={classes.menuButton} color="inherit" aria-label="Create Account">
                     </IconButton> */}
                     <Typography component="h1" variant="h2" display="inline-block" color="textPrimary" gutterBottom>
                         Go! Play! Ruff!
                     </Typography>
                 </Toolbar>
-                <CreateAccount value="flex-end"/>
-                {/* <SignIn />     */}
+                <Grid justify="flex-end" // Add it here :)
+                    container
+                    spacing={24} container
+                    direction="row">
+                    <Grid item >
+                    <CreateAccount />
+                    <SignIn />
+                    </Grid>
+                </Grid>
             </AppBar>
             <main>
                 {/* Hero unit */}
@@ -142,10 +149,10 @@ function About(props) {
                                         <CardContent className={classes.cardContent}>
                                             <Typography gutterBottom variant="h5" component="h2">
                                                 {card.title}
-                                    </Typography>
+                                            </Typography>
                                             <Typography>
                                                 {card.text}
-                                        </Typography>
+                                            </Typography>
                                         </CardContent>
                                     </CardActionArea>
                                     <CardActions>

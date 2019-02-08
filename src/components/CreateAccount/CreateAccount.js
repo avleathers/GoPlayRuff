@@ -61,7 +61,7 @@ class CreateAccount extends React.Component {
   render() {
     return (
       <div>
-        <Button variant="outlined" className="text-right" value="flex-end" onClick={this.handleClickOpen}>
+        <Button variant="outlined" className="text-right" onClick={this.handleClickOpen}>
           Create Account
         </Button>
         <Dialog
