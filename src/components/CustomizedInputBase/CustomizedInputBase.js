@@ -57,12 +57,23 @@ class CustomizedInputBase extends Component{
       <IconButton className={classes.iconButton} aria-label="Menu">
         <MenuIcon />
       </IconButton>
-      <InputBase className={classes.input} value = {this.state.value} onChange={this.handleInputChange} placeholder="City, State" name = "value" />
-      <IconButton className={classes.iconButton} aria-label="Search">
+      <InputBase
+        className={classes.input}
+        value={this.state.value}
+        onChange={this.handleInputChange}
+        placeholder="City, State"
+        name="value" />
+      <IconButton
+        className={classes.iconButton}
+        aria-label="Search">
         <SearchIcon />
       </IconButton>
-      <Divider className={classes.divider} />
-      <IconButton color="primary" className={classes.iconButton} aria-label="Directions">
+      <Divider
+        className={classes.divider} />
+      <IconButton
+        color="primary"
+        className={classes.iconButton}
+        aria-label="Directions">
         <DirectionsIcon />
       </IconButton>
     </Paper>

@@ -8,7 +8,9 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import DirectionsIcon from '@material-ui/icons/Directions';
-import CustomizedInputBase from '../CustomizedInputBase'
+import CustomizedInputBase from '../CustomizedInputBase';
+import axios from "axios";
+
 
 const styles = {
   root: {
@@ -31,57 +33,30 @@ const styles = {
   },
 };
 
-
 class Search extends Component {
-  state = {  }
-  render() {
-    return (
-        <div id="test"></div>
+ state = {
+   query: '',
+ }
 
-          <script>
-            var myCallback = function() {
-            if (document.readyState == 'complete') {
-                  // Document is ready when CSE element is initialized.
-                  // Render an element with both search box and search results in div with id 'test'.
-                  google.search.cse.element.render(
-                      {
-                          div: "test",
-                          tag: 'search'
-                      });
-              } else {
-                  // Document is not ready yet, when CSE element is initialized.
-                  google.setOnLoadCallback(function () {
-                      // Render an element with both search box and search results in div with id 'test'.
-                      google.search.cse.element.render(
-                          {
-                              div: "test",
-                              tag: 'search'
-                          });
-                  }, true);
-              }
-            };
-            
-            // Insert it before the CSE code snippet so that cse.js can take the script
-            // parameters, like parsetags, callbacks.
-            window.__gcse = {
-                  parsetags: 'explicit',
-              callback: myCallback
-            };
-            
-            (function() {
-            var cx = '123:456'; // Insert your own Custom Search engine ID here
-              var gcse = document.createElement('script'); gcse.type = 'text/javascript';
-              gcse.async = true;
-              gcse.src = 'https://cse.google.com/cse?cx=012027344973539597455:4rhv5aor7f8' + cx;
-              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
-            })();
-</script>
+ handleInputChange = () => {
+   this.setState({
+     query: this.search.value
+   })
+ }
 
-       // Custom search engine : https://cse.google.com/cse?cx=012027344973539597455:4rhv5aor7f8/
+ render() {
+   return (
+     <form>
+       <input
+         placeholder="Search for..."
+         ref={input => this.search = input}
+         onChange={this.handleInputChange}
+       />
+       <p>{this.state.query}</p>
+     </form>
+   )
+ }
 
-    )
-  }
 }
-
 
 export default Search;

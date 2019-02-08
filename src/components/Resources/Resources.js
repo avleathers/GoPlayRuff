@@ -1,15 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import InputBase from '@material-ui/core/InputBase';
-import Divider from '@material-ui/core/Divider';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import SearchIcon from '@material-ui/icons/Search';
-import DirectionsIcon from '@material-ui/icons/Directions';
 import CustomizedInputBase from '../CustomizedInputBase'
-//import Search from '../Search'
+import Search from "../Search";
+import axios from "axios";
 
 const styles = {
   root: {
@@ -32,12 +26,12 @@ const styles = {
   },
 };
 
-
 class Resources extends Component {
   state = {  }
   render() {
     return (
-      <CustomizedInputBase/>
+      <CustomizedInputBase/> //get location to search
+
 
     );
   }
