@@ -1,4 +1,5 @@
 module.exports = {
     userInfo: require("./userInfo"),
-    userScore: require("./userScore")
+    userScore: require("./userScore"),
+    search: require("./search")
 };

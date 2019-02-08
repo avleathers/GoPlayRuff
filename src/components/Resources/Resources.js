@@ -30,6 +30,7 @@ class Resources extends Component {
   state = {  }
   render() {
     return (
+      
       <CustomizedInputBase/> //get location to search
 
 

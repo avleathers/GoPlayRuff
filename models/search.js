@@ -31,7 +31,5 @@ var SearchSchema = new Schema({
 
 });
 
-/////// Instance Methods for fullname ///////////
-
-var Search = mongoose.model("Search", UserSchema);
+var Search = mongoose.model("Search", SearchSchema);
 module.exports = Search;
