@@ -23,11 +23,18 @@ import SignIn from "../SignIn";
 const styles = theme => ({
     appBar: {
         position: 'sticky',
-        background: 'teal',
+        background: 'green',
+        flexDirection: 'row',
     },
     icon: {
         marginRight: theme.spacing.unit * 2,
     },
+    menuButton: {
+        flexDirection: 'row',
+        align: 'right',
+        justify: 'flex-end',
+    },
+
     heroUnit: {
         background: '#b2dfdb',
     },
@@ -99,22 +106,22 @@ function About(props) {
             <CssBaseline />
             <AppBar position="sticky" className={classes.appBar}>
                 <Toolbar>
-                <IconButton className={classes.menuButton} color="inherit" aria-label="Create Account">
-                    </IconButton>
-                    {/* <Typography variant="h6" color="inherit" noWrap>
-                        About layout
-                    </Typography> */}
+                {/* <IconButton className={classes.menuButton} color="inherit" aria-label="Create Account">
+                    </IconButton> */}
+                    <Typography component="h1" variant="h2" display="inline-block" color="textPrimary" gutterBottom>
+                        Go! Play! Ruff!
+                    </Typography>
                 </Toolbar>
-                <CreateAccount />
-                <SignIn />    
+                <CreateAccount value="flex-end"/>
+                {/* <SignIn />     */}
             </AppBar>
             <main>
                 {/* Hero unit */}
                 <div className={classes.heroUnit}>
                     <div className={classes.heroContent}>
-                        <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
+                        {/* <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
                             Go! Play! Ruff!
-                        </Typography>
+                        </Typography> */}
                         <Typography variant="h6" align="center" color="textSecondary" paragraph>
                             Go! Play! Ruff! is a place where people who love dogs can find great dog-friendly resources, and play a fun dog puzzle game.
                         </Typography>
