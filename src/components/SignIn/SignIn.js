@@ -51,7 +51,7 @@ export default class FormDialog extends React.Component {
               margin="dense"
               id="password"
               label="Password"
-              type="string"
+              type="password"
               fullWidth
             />
           </DialogContent>
