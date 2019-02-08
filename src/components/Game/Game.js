@@ -45,7 +45,9 @@ const holeStyle = {
 const buttonStyle = {
   display: 'block',
   margin: '16px auto',
-  padding: '8px 16px'
+  padding: '8px 16px',
+  background: 'teal',
+  flexDirection: 'row'
 }
 
 // Checks if the puzzle can be solved.
