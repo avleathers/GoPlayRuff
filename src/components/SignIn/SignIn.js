@@ -7,6 +7,8 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
+// Form Dialog from Material UI was used to create this file.
+
 export default class FormDialog extends React.Component {
   state = {
     open: false,
@@ -49,7 +51,7 @@ export default class FormDialog extends React.Component {
               margin="dense"
               id="password"
               label="Password"
-              type="string"
+              type="password"
               fullWidth
             />
           </DialogContent>

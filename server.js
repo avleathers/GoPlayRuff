@@ -4,10 +4,14 @@ var mongoose = require("mongoose");
 var axios = require("axios");
 var cheerio = require("cheerio");
 
-var PORT = 3000;
 
-var User = require("./models/userInfo.js");
-var app = express();
+const PORT = 3000;
+
+// const User = require("./models/userInfo.js");
+// const Score = require("./models/userScore.js")
+const app = express();
+const db = require("./models")
+//require("./routes/user_api")(app);
 
 // Configure middleware
 
@@ -19,6 +23,8 @@ app.use(express.json());
 // Make public a static folder
 app.use(express.static("public"));
 
+
+//require("./routes/user_api.js")(api);
 // Connect to the Mongo DB
 mongoose.connect("mongodb://localhost/goplayruff", { useNewUrlParser: true });
 
@@ -66,8 +72,29 @@ app.post("/submit", function (req, res) {
 })
 
 
+
+
+app.post("/", function(req, res) {
+  db.userInfo.create(req.body)
+    .then(function(dbUser){
+      return db.userInfo.findOneAndUpdate({}, { $push: { users: dbUser._id}}, { new: true});
+    })
+    .then(function(dbUser) {
+      res.json(dbUser);
+    })
+    .catch(function(err) {
+      res.json(err);
+    });
+})
+
+
+
+
+
+
 // Start the server
 
-    app.listen(PORT, function () {
-        console.log("App running on port " + PORT + "!");
-    });
+app.listen(PORT, function () {
+  console.log("App running on port " + PORT + ".");
+});
+

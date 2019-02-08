@@ -9,6 +9,8 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import axios from 'axios';
 
 
+// Form Dialog from Material UI was used to create this file.
+
 axios.post("/users", {
   firstName: '',
   lastName: '',
@@ -23,7 +25,8 @@ class CreateAccount extends React.Component {
     firstName: "",
     lastName: "",
     username: "",
-    password: ""
+    password: "",
+    email: ""
   };
 
   handleClickOpen = () => {
@@ -72,7 +75,7 @@ class CreateAccount extends React.Component {
           <DialogTitle id="form-dialog-title">Create Account</DialogTitle>
           <DialogContent>
             <DialogContentText>
-              To create an Account, please enter your First Name, Last Name, a User Name, and a Password.
+              To create an Account, please enter your first name, last name, a user name, a password, and your email address.
             </DialogContentText>
             <TextField
               autoFocus
@@ -103,6 +106,14 @@ class CreateAccount extends React.Component {
               margin="dense"
               id="password"
               label="Password"
+              type="password"
+              fullWidth
+            />
+            <TextField
+              autoFocus
+              margin="dense"
+              id="email"
+              label="Email"
               type="string"
               fullWidth
             />
@@ -121,5 +132,13 @@ class CreateAccount extends React.Component {
     );
   }
 }
+
+axios.post("/users", {
+  firstName: 'this.firstName',
+  lastName: 'this.lastName',
+  username: 'this.username',
+  password: 'this.password',
+  email: 'this.email'
+});
 
 export default CreateAccount;
