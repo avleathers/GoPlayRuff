@@ -30,9 +30,9 @@ class Resources extends Component {
   state = {  }
   render() {
     return (
-      
+    
       <CustomizedInputBase/> //get location to search
-
+      // <Search/> //Retrieve the server data based on Location from CustomizedInputbase
 
     );
   }
