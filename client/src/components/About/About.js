@@ -9,7 +9,6 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
-import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import missyRustyPic from "./Assets/MissyRusty.jpg";
@@ -26,7 +25,7 @@ const styles = theme => ({
         display: 'flex',
         position: 'sticky',
         background: '#66bb6a',
-        paddingTop: 60,
+        paddingTop: 50,
     },
     
     menuButton: {
@@ -95,7 +94,7 @@ const cards = [
     },
     {
         img: taePoodlePic,
-        title: "Tae and Poodle",
+        title: "Tae and Kong",
         text: "Text for Tae and his poodle's story."
     },
     {
@@ -122,7 +121,7 @@ function About(props) {
                     </Typography>
                         <Grid justify="flex-end" // Add it here :)
                         container
-                        spacing={24} 
+                        spacing={16} 
                         grid direction="row">
                         <Grid item >
                         <CreateAccount />
