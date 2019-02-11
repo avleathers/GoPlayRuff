@@ -18,14 +18,19 @@ import taePoodlePic from "./Assets/TaePoodle.jpg";
 import colinWheatenPic from "./Assets/ColinWheaten.jpg";
 import CreateAccount from "../CreateAccount";
 import SignIn from "../SignIn";
+import Divider from '@material-ui/core/Divider';
+
 
 const styles = theme => ({
     appBar: {
+        display: 'flex',
         position: 'sticky',
         background: '#66bb6a',
+        paddingTop: 60,
     },
     
     menuButton: {
+        display: 'flex',
         flexDirection: 'row',
         align: 'right',
         justify: 'flex-end',
@@ -37,7 +42,7 @@ const styles = theme => ({
     heroContent: {
         maxWidth: 600,
         margin: '0 auto',
-        padding: `${theme.spacing.unit * 4}px 0 ${theme.spacing.unit * 3}px`,
+        padding: `${theme.spacing.unit * 4}px 0 ${theme.spacing.unit * 3}px 0`,
     },
     layout: {
         width: 'auto',
@@ -65,6 +70,12 @@ const styles = theme => ({
     cardContent: {
         flexGrow: 1,
     },
+    divider: {
+        width: '100%',
+        height: '100px',
+        backgroundColor: '#c8e6c9',
+    },
+
     footer: {
         backgroundColor: 'green',
         padding: theme.spacing.unit * 6,
@@ -94,6 +105,7 @@ const cards = [
     }
 ];
 
+
 function About(props) {
     const { classes } = props;
 
@@ -104,19 +116,20 @@ function About(props) {
                 <Grid
                     container
                     direction="row"
-                    justify="center"
-                    alignItems="center">
+                    justify="center">
                     <Typography component="h1" variant="h2" display="inline-block" color="textPrimary">
                         Go! Play! Ruff!
                     </Typography>
-                </Grid>
-                <Grid justify="flex-end" // Add it here :)
-                    container
-                    spacing={24} container
-                    direction="row">
-                    <Grid item >
-                    <CreateAccount />
-                    <SignIn />
+                        <Grid justify="flex-end" // Add it here :)
+                        container
+                        spacing={24} 
+                        grid direction="row">
+                        <Grid item >
+                        <CreateAccount />
+                        </Grid>
+                        <Grid item >
+                        <SignIn />
+                        </Grid>
                     </Grid>
                 </Grid>
             </AppBar>
@@ -124,9 +137,6 @@ function About(props) {
                 {/* Hero unit */}
                 <div className={classes.heroUnit}>
                     <div className={classes.heroContent}>
-                        {/* <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-                            Go! Play! Ruff!
-                        </Typography> */}
                         <Typography variant="h6" align="center" color="textSecondary" paragraph>
                             Go! Play! Ruff! is a place where people who love dogs can find great dog-friendly resources, and play a fun dog puzzle game.
                         </Typography>
@@ -160,6 +170,7 @@ function About(props) {
                         ))}
                     </Grid>
                 </div>
+                <Divider />
             </main>
         </React.Fragment>
     );

@@ -14,8 +14,8 @@ import image_part_008 from "./Assets/image_part_008.jpg"
 
 
 const {Component} = React
-const {render} = ReactDOM
-const {range} = _
+// const {render} = ReactDOM
+// const {range} = _
 
 const images = [
   image_part_001, image_part_002, image_part_003, image_part_004, image_part_005, image_part_006, image_part_007, image_part_008
@@ -45,7 +45,9 @@ const holeStyle = {
 const buttonStyle = {
   display: 'block',
   margin: '16px auto',
-  padding: '8px 16px'
+  padding: '8px 16px',
+  background: 'teal',
+  flexDirection: 'row'
 }
 
 // Checks if the puzzle can be solved.
