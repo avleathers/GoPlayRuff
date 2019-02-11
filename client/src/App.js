@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import About from "./components/About";
 import Game from "./components/Game";
+// import Resources from "./components/Resources";
 import Footer from "./components/Footer";
 import "./App.css";
 import Timer from "./components/timer"
