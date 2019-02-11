@@ -3,7 +3,7 @@ const logger = require("morgan");
 const mongoose = require("mongoose");
 
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3001;
 
 // const User = require("./models/userInfo.js");
 // const Score = require("./models/userScore.js")
@@ -29,31 +29,30 @@ mongoose.connect("mongodb://localhost/goplayruff", { useNewUrlParser: true });
 
 ////////////////////// Routes////////////////////////
 
-app.get("/users", function(req, res) {
-  db.userInfo.find({})
-  .then(function(dbUser) {
-    res.json(dbUser);
-  })
-  .catch(function(err) {
-    res.json(err);
-  });
-});
+// MISSY commented out the code below since we are using axios.
 
+// app.get("/users", function(req, res) {
+//   db.userInfo.find({})
+//   .then(function(dbUser) {
+//     res.json(dbUser);
+//   })
+//   .catch(function(err) {
+//     res.json(err);
+//   });
+// });
 
-
-
-app.post("/", function(req, res) {
-  db.userInfo.create(req.body)
-    .then(function(dbUser){
-      return db.userInfo.findOneAndUpdate({}, { $push: { users: dbUser._id}}, { new: true});
-    })
-    .then(function(dbUser) {
-      res.json(dbUser);
-    })
-    .catch(function(err) {
-      res.json(err);
-    });
-})
+// app.post("/", function(req, res) {
+//   db.userInfo.create(req.body)
+//     .then(function(dbUser){
+//       return db.userInfo.findOneAndUpdate({}, { $push: { users: dbUser._id}}, { new: true});
+//     })
+//     .then(function(dbUser) {
+//       res.json(dbUser);
+//     })
+//     .catch(function(err) {
+//       res.json(err);
+//     });
+// })
 
 
 
