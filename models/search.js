@@ -1,22 +1,26 @@
-var mongoose = require("mongoose");
+const mongoose = require("mongoose");
 //
-var Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 //
-var SearchSchema = new Schema({
+const SearchSchema = new Schema({
 
     website:  
-        [{
-        url: String,
-        image: String}
-    ],
-
+        {
+        type: String,
+        trim: true
+    },
+    thumbnail:  
+    {
+        type: String,
+        trim: true
+    },
     name: {
         type: String,
         trim: true
     },
 
     rating: {
-        type: double,
+        type: Number,
         trim: true
     },
 
@@ -25,6 +29,9 @@ var SearchSchema = new Schema({
         trim: true,
     },
 
+    city: {
+        type: String,
+    },
     address: {
         type: String,
     }

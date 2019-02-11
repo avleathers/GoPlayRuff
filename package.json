@@ -2,10 +2,12 @@
   "name": "goplayruff",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001",
   "dependencies": {
     "@material-ui/core": "^3.9.2",
     "@material-ui/icons": "^3.0.2",
     "axios": "^0.18.0",
+    "cheerio": "^1.0.0-rc.2",
     "express": "^4.16.4",
     "lodash": "^4.17.11",
     "mongoose": "^5.4.10",
