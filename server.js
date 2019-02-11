@@ -11,8 +11,8 @@ var axios = require("axios");
 var db = require("./models");
 
 
-var PORT = process.env.PORT || 3000;
-// var PORT = 3000;
+var PORT = process.env.PORT || 3001;
+// var PORT = 3001;
 var app = express();
 
 // Use morgan logger for logging requests
