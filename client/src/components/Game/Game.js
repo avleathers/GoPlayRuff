@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react';
+// import ReactDOM from 'react';
 import {Motion, spring} from 'react-motion';
 import _ from "lodash";
 import image_part_001 from "./Assets/image_part_001.jpg"
@@ -80,9 +80,9 @@ function isSolved (numbers) {
 }
 
 // Get the linear index from a row/col pair.
-function getLinearPosition ({row, col}, rows, cols) {
-  return parseInt(row, 10) * cols + parseInt(col, 10)
-}
+// function getLinearPosition ({row, col}, rows, cols) {
+//   return parseInt(row, 10) * cols + parseInt(col, 10)
+// }
 
 // Get the row/col pair from a linear index.
 function getMatrixPosition (index, rows, cols) {
@@ -131,7 +131,7 @@ class Tile extends Component {
   }
   
   render () {
-    const {hole, number, index, rows, cols, width, height, images} = this.props
+    const {hole, number, index, rows, cols, width, height} = this.props
     const matrixPos = getMatrixPosition(index, rows, cols)
     const visualPos = getVisualPosition(matrixPos, width, height)
     const motionStyle = {
