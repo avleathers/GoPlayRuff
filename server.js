@@ -117,19 +117,35 @@ app.get("/restaurants/:id", function(req, res) {
   });
   
 // Route to post our form submission to mongoDB via mongoose
-app.post("/submit", function (req, res) {
-    var user = new User(req.body);
-    user.setFullName();
-    user.signupUpdatedDate();
+app.get("/users", function(req, res) {
+  db.userInfo.find({})
+  .then(function(dbUser) {
+    res.json(dbUser);
+  })
+  .catch(function(err) {
+    res.json(err);
+  });
+});
 
-    User.create(user)
-        .then(function(dbUser) {
-            res.json(dbUser);
-        })
-        .catch(function(err) {
-            res.json(err);
-        })
+
+
+
+app.post("/post/users", function(req, res) {
+  console.log(req.body);
+  db.userInfo.create(req.body)
+    .then(function(dbUser){
+      return db.userInfo.findOneAndUpdate({}, { $push: { users: dbUser._id}}, { new: true});
+    })
+    .then(function(dbUser) {
+      res.json(dbUser);
+    })
+    .catch(function(err) {
+      res.json(err);
+    });
 })
+
+
+
 
 // Start the server
 
