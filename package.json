@@ -23,10 +23,6 @@
     "body-parser": "^1.18.2",
     "express": "^4.15.4",
     "if-env": "^1.0.4",
-<<<<<<< HEAD
-=======
-    "mongoose": "^5.4.11",
->>>>>>> a584d908ee94eceba1c0a80733be600d8bc6ead0
     "morgan": "^1.9.1"
   }
 }
