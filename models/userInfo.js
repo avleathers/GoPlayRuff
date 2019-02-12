@@ -4,21 +4,22 @@ var Schema = mongoose.Schema;
 //
 var UserSchema = new Schema({
 
+    firstName: { 
+        type: String,
+        trim: true,
+        required: "First Name is Required"
+    },
+
+    lastName: {
+        type: String,
+        trim: true,
+        required: "Last Name is Required"
+    },
 
     username: {
-        firstname: {
-            type: String, 
-            trim: true, 
-            required: "Firstname is required"           
-        },
-
-        lastname: {
-            type: String, 
-            trim: true,
-            required: "Lastname is required"
-        },
-
-        required: "Username is required"   , 
+        type: String,
+        trim: true,
+        required: "Username is Required"
     },
 
     password: {
@@ -26,10 +27,10 @@ var UserSchema = new Schema({
         trim: true,
         required: "Password is Required",
         validate: [
-          function(input) {
-            return input.length >= 6;
-          },
-          "Password must be longer than 6 characters."
+            function (input) {
+                return input.length >= 6;
+            },
+            "Password must be longer than 6 characters."
         ]
     },
 
@@ -37,13 +38,32 @@ var UserSchema = new Schema({
         type: String,
         unique: true,
         match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
-      },
-      userCreated: {
+    },
+
+
+    userCreated: {
         type: Date,
         default: Date.now
-      },
+    },
+
+    fullName: String
 
 });
+
+
+/////// Instance Methods for fullname ///////////
+
+UserSchema.methods.setFullName = function () {
+    this.fullName = this.firstName + " " + this.lastName;
+    return this.fullName;
+};
+
+UserSchema.methods.signupUpdatedDate = function () {
+    this.lastUpdated = Date.now();
+    return this.lastUpdated;
+};
+
+
 
 
 
