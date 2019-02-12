@@ -5,6 +5,7 @@ var mongoose = require("mongoose");
 // Axios is a promised-based http library, similar to jQuery's Ajax method
 // It works on the client and on the server
 var axios = require("axios");
+var path = require("path");
 
 // Require all models
 var db = require("./models");
@@ -19,8 +20,7 @@ app.use(logger("dev"));
 // Parse request body as JSON
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-// Make public a static folder
-app.use(express.static("public"));
+
 
 
 if (process.env.NODE_ENV === "production") {
@@ -141,13 +141,13 @@ app.get("/users", function(req, res) {
 
 // Start the server
 // Define any API routes before this runs
-app.get('/', function (req, res) {
-res.send('hello world')
-});
-
-// app.get("*", function(req, res) {
-//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
+// app.get('/', function (req, res) {
+// res.send('hello world')
 // });
+
+app.get("*", function(req, res) {
+res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 
 // Start the API server
 app.listen(PORT, () =>
