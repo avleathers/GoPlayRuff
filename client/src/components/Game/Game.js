@@ -146,7 +146,7 @@ class Tile extends Component {
     }
     
     return (
-      <Motion style={motionStyle}>
+      <Motion style={motionStyle} >
         {({translateX, translateY}) => (
           <li style={{...style, transform: `translate3d(${translateX}px, ${translateY}px, 0)`}}
             onClick={this.handleClick}

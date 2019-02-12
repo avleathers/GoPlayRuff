@@ -1,33 +1,33 @@
 const React = require('react')
 
 class Timer extends React.Component {
-  constructor(props){
-    super(props)
-    this.startTimer = this.startTimer.bind(this)
-    this.stopTimer = this.stopTimer.bind(this)
-    this.resetTimer = this.resetTimer.bind(this)
-    this.state = 0
+  state = {
+    status: false,
+    runningTime: 0
+  };
+};
+
+this.handleClick = set.state(state => {
+  if (state.status) {
+    clearInterval(this.timer);
+  } else {
+    const startTime = Date.now() - this.state.runningTime;
+    this.timer = setInterval(() => {
+      this.setState({ runningTime: Date.now() - startTime });
+    });
   }
-  startTimer() {
-    this.timer = setInterval(() => this.setState({
-        time: this.state.time + 1
-      }), 1000)
-    console.log("start")
-  }
-  stopTimer() {
-    clearInterval(this.timer)
-    console.log("stop")
-  }
-  resetTimer() {
-    this.setState({time: 0})
-    console.log("reset")
-  }
-  render() {
-     return (
-       <div>
-         <h3>timer: {this.state.time}</h3>
-       </div>
-     );
-  }
+});
+
+
+resetTimer = () => {
+    this.setState({ runningTime: 0, status: false });
+ };
+render = () => {
+    return(
+    <div>
+  <h3>timer: {this.state.time}</h3>
+    </div >
+  );
 }
+
 export default Timer;
