@@ -1,11 +1,12 @@
 var express = require("express");
 var logger = require("morgan");
 var mongoose = require("mongoose");
-
 // Our scraping tools
-// Axios is a promised-based http library, similar to jQuery's Ajax method
 // It works on the client and on the server
+
 var axios = require("axios");
+var path = require("path");
+
 
 // Require all models
 var db = require("./models");
@@ -20,9 +21,17 @@ app.use(logger("dev"));
 // Parse request body as JSON
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+
 // Make public a static folder
 app.use(express.static("public"));
+//////////Routes//////////
+require("./routes/account-api")(app);
+require("./routes/scrapping-api")(app);
 
+
+
+////////////
 
 if (process.env.NODE_ENV === "production") {
  app.use(express.static("client/build"));
@@ -30,6 +39,7 @@ if (process.env.NODE_ENV === "production") {
   
 // Connect to the Mongo DB via production server or development
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/goplayruff");
+
 
 ////////////////////// Routes////////////////////////
 
@@ -93,9 +103,9 @@ app.get("/go/search", function(req, res) {
 app.post("/go/restaurants", function (req, res) {
     restaurant = new Search(req.body);
 
-    Search.create(restaurant)
-        .then(function(dbUser) {
-            res.json(dbUser);
+    db.Search.create(restaurant)
+        .then(function(dbSearch) {
+            res.json(dbSearch);
         })
         .catch(function(err) {
             res.json(err);
@@ -106,7 +116,7 @@ app.post("/go/restaurants", function (req, res) {
 app.get("/restaurants/:id", function(req, res) {
     // Grab every dog-friendly in the Search collection
     db.Search.find({})
-      .then(function(db) {
+      .then(function(dbSearch) {
         // If we were able to successfully find dog friendly restaurants & send back to the client
         res.json(dbSearch);
       })
@@ -125,13 +135,9 @@ app.get("/users", function(req, res) {
   .catch(function(err) {
     res.json(err);
   });
-});
-
-
-
-
-app.post("/post/users", function(req, res) {
-  console.log(req.body);
+ });
+ 
+ app.post("/post/users", function(req, res) {
   db.userInfo.create(req.body)
     .then(function(dbUser){
       return db.userInfo.findOneAndUpdate({}, { $push: { users: dbUser._id}}, { new: true});
@@ -142,17 +148,23 @@ app.post("/post/users", function(req, res) {
     .catch(function(err) {
       res.json(err);
     });
-})
+ })
+
 
 
 
 
 // Start the server
+// Define any API routes before this runs
+// app.get('/', function (req, res) {
+// res.send('hello world')
+// });
 
-    // app.listen(PORT, function () {
-        // console.log("App running on port " + PORT + "!");
-    // });
+app.get("*", function(req, res) {
+res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
+
 // Start the API server
 app.listen(PORT, () =>
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`)
-);
+);  
