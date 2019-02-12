@@ -1,6 +1,6 @@
 import React from 'react';
 // import ReactDOM from 'react';
-import {Motion, spring} from 'react-motion';
+import { Motion, spring } from 'react-motion';
 import _ from "lodash";
 import image_part_001 from "./Assets/image_part_001.jpg"
 import image_part_002 from "./Assets/image_part_002.jpg"
@@ -13,14 +13,14 @@ import image_part_008 from "./Assets/image_part_008.jpg"
 
 
 
-const {Component} = React
+const { Component } = React
 // const {render} = ReactDOM
 // const {range} = _
 
 const images = [
   image_part_001, image_part_002, image_part_003, image_part_004, image_part_005, image_part_006, image_part_007, image_part_008
 ];
-  
+
 
 
 const tilesStyle = {
@@ -31,7 +31,7 @@ const tilesStyle = {
 }
 
 const tileStyle = {
-  backgroundImage:  "images[0]",
+  backgroundImage: "images[0]",
   boxShadow: 'inset 0 0 1px 0 black',
   boxSizing: 'border-box',
   display: 'block',
@@ -55,7 +55,7 @@ const buttonStyle = {
 // Examples:
 //   isSolvable([3, 7, 6, 0, 5, 1, 2, 4, 8], 3, 3) // => false
 //   isSolvable([6, 4, 5, 0, 1, 2, 3, 7, 8], 3, 3) // => true
-function isSolvable (numbers, rows, cols) {
+function isSolvable(numbers, rows, cols) {
   let product = 1
   for (let i = 1, l = rows * cols - 1; i <= l; i++) {
     for (let j = i + 1, m = l + 1; j <= m; j++) {
@@ -70,7 +70,7 @@ function isSolvable (numbers, rows, cols) {
 // Examples:
 //   isSolved([6, 4, 5, 0, 1, 2, 3, 7, 8]) // => false
 //   isSolved([0, 1, 2, 3, 4, 5, 6, 7, 8]) // => true
-function isSolved (numbers) {
+function isSolved(numbers) {
   for (let i = 0, l = numbers.length; i < l; i++) {
     if (numbers[i] !== i) {
       return false
@@ -85,53 +85,53 @@ function isSolved (numbers) {
 // }
 
 // Get the row/col pair from a linear index.
-function getMatrixPosition (index, rows, cols) {
+function getMatrixPosition(index, rows, cols) {
   return {
     row: Math.floor(index / cols),
     col: index % cols
   }
 }
 
-function getVisualPosition ({row, col}, width, height) {
+function getVisualPosition({ row, col }, width, height) {
   return {
     x: col * width,
     y: row * height
   }
 }
 
-function shuffle (numbers, hole, rows, cols) {
+function shuffle(numbers, hole, rows, cols) {
   do {
     numbers = _.shuffle(_.without(numbers, hole)).concat(hole)
   } while (isSolved(numbers) || !isSolvable(numbers, rows, cols))
   return numbers
 }
 
-function canSwap (src, dest, rows, cols) {
-  const {row: srcRow, col: srcCol} = getMatrixPosition(src, rows, cols)
-  const {row: destRow, col: destCol} = getMatrixPosition(dest, rows, cols)
+function canSwap(src, dest, rows, cols) {
+  const { row: srcRow, col: srcCol } = getMatrixPosition(src, rows, cols)
+  const { row: destRow, col: destCol } = getMatrixPosition(dest, rows, cols)
   return (Math.abs(srcRow - destRow) + Math.abs(srcCol - destCol) === 1)
 }
 
-function swap (numbers, src, dest) {
+function swap(numbers, src, dest) {
   numbers = _.clone(numbers);
   [numbers[src], numbers[dest]] = [numbers[dest], numbers[src]]
   return numbers
 }
 
 class Tile extends Component {
-  constructor () {
+  constructor() {
     super()
-    
+
     this.handleClick = this.handleClick.bind(this)
   }
-  
-  handleClick () {
-    const {index} = this.props
+
+  handleClick() {
+    const { index } = this.props
     this.props.onClick(index)
   }
-  
-  render () {
-    const {hole, number, index, rows, cols, width, height} = this.props
+
+  render() {
+    const { hole, number, index, rows, cols, width, height } = this.props
     const matrixPos = getMatrixPosition(index, rows, cols)
     const visualPos = getVisualPosition(matrixPos, width, height)
     const motionStyle = {
@@ -144,17 +144,43 @@ class Tile extends Component {
       width,
       height
     }
-    
+    // class Timer extends React.Component {
+    //   state = {
+    //     status: false,
+    //     runningTime: 0
+    //   };
+
+
+    //   handleClick = () => {
+    //     if (this.state.status) {
+    //       clearInterval(this.timer);
+    //     } else {
+    //       const startTime = Date.now() - this.state.runningTime;
+    //       this.timer = setInterval(() => {
+    //         this.setState({ runningTime: Date.now() - startTime });
+    //       });
+    //     }
+    //   };
+
+
+
+    //   resetTimer = () => {
+    //     this.setState({ runningTime: 0, status: false });
+    //   };
+
+
+    // };
+
     return (
       <Motion style={motionStyle} >
-        {({translateX, translateY}) => (
-          <li style={{...style, transform: `translate3d(${translateX}px, ${translateY}px, 0)`}}
+        {({ translateX, translateY }) => (
+          <li style={{ ...style, transform: `translate3d(${translateX}px, ${translateY}px, 0)` }}
             onClick={this.handleClick}
-            >
-           
+          >
+
             <img src={this.props.image} width={100} height={100} />
-            
-           
+
+
           </li>
         )}
       </Motion>
@@ -163,44 +189,44 @@ class Tile extends Component {
 }
 
 class Tiles extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
-    
-    const {rows, cols} = props
-    this.state = {numbers: _.range(0, rows * cols)}
-    
+
+    const { rows, cols } = props
+    this.state = { numbers: _.range(0, rows * cols) }
+
     this.handleTileClick = this.handleTileClick.bind(this)
     this.handleButtonClick = this.handleButtonClick.bind(this)
   }
-  
-  handleTileClick (index) {
+
+  handleTileClick(index) {
     this.swap(index)
   }
-  
-  handleButtonClick () {
+
+  handleButtonClick() {
     this.shuffle()
   }
-  
-  shuffle () {
-    const {hole, rows, cols} = this.props
-    const {numbers} = this.state
+
+  shuffle() {
+    const { hole, rows, cols } = this.props
+    const { numbers } = this.state
     const shuffledNumbers = shuffle(numbers, hole, rows, cols)
-    this.setState({numbers: shuffledNumbers})
+    this.setState({ numbers: shuffledNumbers })
   }
-  
-  swap (tileIndex) {
-    const {hole, rows, cols} = this.props
-    const {numbers} = this.state
+
+  swap(tileIndex) {
+    const { hole, rows, cols } = this.props
+    const { numbers } = this.state
     const holeIndex = numbers.indexOf(hole)
     if (canSwap(tileIndex, holeIndex, rows, cols)) {
       const newNumbers = swap(numbers, tileIndex, holeIndex)
-      this.setState({numbers: newNumbers})
+      this.setState({ numbers: newNumbers })
     }
   }
-  
-  render () {
-    const {rows, cols, width, height} = this.props
-    const {numbers} = this.state
+
+  render() {
+    const { rows, cols, width, height } = this.props
+    const { numbers } = this.state
     const solved = isSolved(numbers)
     const pieceWidth = Math.round(width / cols)
     const pieceHeight = Math.round(height / rows)
@@ -209,7 +235,7 @@ class Tiles extends Component {
       width,
       height
     }
-    
+
     return (
       <div>
         <ul style={style}>
@@ -231,7 +257,7 @@ class Tiles extends Component {
 }
 
 class Puzzle extends Component {
-  render () {
+  render() {
     return (
       <Tiles rows={3} cols={3} hole={8}
         width={300} height={300}
