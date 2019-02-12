@@ -17,69 +17,76 @@ import CustomizedInputBase from '../CustomizedInputBase'
 import Search from "../Search";
 import axios from "axios";
 
+class Resources extends Component {
+  
+    constructor(props) {
+      super(props);
+      this.state = {
+        open: false,
+        restaurants: []
+      };
+    }
+    handleClickOpen = () => {
+      this.setState({ open: true });
+    };
 
-const styles = theme => ({
-  appBar: {
-    position: 'relative',
-  },
-  icon: {
-    marginRight: theme.spacing.unit * 2,
-  },
-  heroUnit: {
-    backgroundColor: theme.palette.background.paper,
-  },
-  heroContent: {
-    maxWidth: 600,
-    margin: '0 auto',
-    padding: `${theme.spacing.unit * 8}px 0 ${theme.spacing.unit * 6}px`,
-  },
-  heroButtons: {
-    marginTop: theme.spacing.unit * 4,
-  },
-  layout: {
-    width: 'auto',
-    marginLeft: theme.spacing.unit * 3,
-    marginRight: theme.spacing.unit * 3,
-    [theme.breakpoints.up(1100 + theme.spacing.unit * 3 * 2)]: {
-      width: 1100,
-      marginLeft: 'auto',
-      marginRight: 'auto',
-    },
-  },
-  cardGrid: {
-    padding: `${theme.spacing.unit * 8}px 0`,
-  },
-  card: {
-    height: '100%',
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  cardMedia: {
-    paddingTop: '56.25%', // 16:9
-  },
-  cardContent: {
-    flexGrow: 1,
-  },
-  footer: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing.unit * 6,
-  },
-});
+    handleClose = () => {
+      this.setState({ open: false });
+    };
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+    componentDidMount() {
+      axios.get("/restaurants")
+          .then(res => {
+              const restaurant = res.data;
+              this.setState({ restaurant });
+          })
+    };
+
+    handleInputChange = event => {
+      // Getting the value and name of the input which triggered the change
+      
+      let value = event.target.value;
+      const name = event.target.name;
+      console.log(event.target);
+      // Updating the input's state
+      this.setState({
+        [name]: value
+      });
+    };
+  
+    handleSubmit = event => {
+      event.preventDefault();
+
+      const restaurant = {
+          website: this.state.website,
+          thumbnail: this.state.thumbnail,
+          name: this.state.name,
+          rating: this.state.rating,
+          summary: this.state.summary,
+      };
+
+      axios.post("/post/restaurants",  restaurant )
+          .then(res => {
+              console.log(res);
+              console.log(res.data);
+          })
+          .catch((err) => {
+              console.log(err);
+          })
+  };
 
 
-function Resources(props) {
-  const { classes } = props;
-
-  return (
+    render() {
+    const { classes } = this.props;
+    return (
+      
     <React.Fragment>
       <CssBaseline />
       <AppBar position="static" className={classes.appBar}>
         <Toolbar>
           <CameraIcon className={classes.icon} />
           <Typography variant="h6" color="inherit" noWrap>
-            Album layout
+            Dog-Friendly Places to Go
           </Typography>
         </Toolbar>
       </AppBar>

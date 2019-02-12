@@ -92,9 +92,9 @@ app.get("/go/search", function(req, res) {
 app.post("/go/restaurants", function (req, res) {
     restaurant = new Search(req.body);
 
-    Search.create(restaurant)
-        .then(function(dbUser) {
-            res.json(dbUser);
+    db.Search.create(restaurant)
+        .then(function(dbSearch) {
+            res.json(dbSearch);
         })
         .catch(function(err) {
             res.json(err);
@@ -105,7 +105,7 @@ app.post("/go/restaurants", function (req, res) {
 app.get("/restaurants/:id", function(req, res) {
     // Grab every dog-friendly in the Search collection
     db.Search.find({})
-      .then(function(db) {
+      .then(function(dbSearch) {
         // If we were able to successfully find dog friendly restaurants & send back to the client
         res.json(dbSearch);
       })
@@ -141,13 +141,13 @@ app.get("/users", function(req, res) {
 
 // Start the server
 // Define any API routes before this runs
-// app.get('/', function (req, res) {
-//   res.send('hello world')
-// });
-
-app.get("*", function(req, res) {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+app.get('/', function (req, res) {
+res.send('hello world')
 });
+
+// app.get("*", function(req, res) {
+//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
+// });
 
 // Start the API server
 app.listen(PORT, () =>
