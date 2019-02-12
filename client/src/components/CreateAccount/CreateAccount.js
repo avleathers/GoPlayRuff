@@ -1,3 +1,20 @@
+// import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import AppBar from '@material-ui/core/AppBar';
+//import Button from '@material-ui/core/Button';
+// import CameraIcon from '@material-ui/icons/PhotoCamera';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Grid from '@material-ui/core/Grid';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import { withStyles } from '@material-ui/core/styles';
+import pic from "./Assets/MissyRusty.jpg";
+// import Image from 'material-ui-image'
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -9,136 +26,158 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import axios from 'axios';
 
 
-// Form Dialog from Material UI was used to create this file.
-
-axios.post("/users", {
-  firstName: '',
-  lastName: '',
-  username: '',
-  password: '',
-  email: ''
-});
-
-class CreateAccount extends React.Component {
-  state = {
-    open: false,
-    firstName: "",
-    lastName: "",
-    username: "",
-    password: "",
-    email: ""
-  };
-
-  handleClickOpen = () => {
-    this.setState({ open: true });
-  };
-
-  handleClose = () => {
-    this.setState({ open: false });
-  };
-
-  //  MISSY:  New code to get the value and name of the input which triggered the create
-
-  handleInputCreate = event => {
-    const { name, value } = event.target;
-
-    // Updating the input's state
-    this.setState({
-      [name]: value
-    });
-  };
-
-  handleFormSubmit = event => {
-    // Preventing the default behavior of the form submit (which is to refresh the page)
-    event.preventDefault();
-
-    // Alert the user their first and last name, clear `this.state.firstName` and `this.state.lastName`, clearing the inputs
-    alert(`Hello ${this.state.firstName} ${this.state.lastName}`);
-    this.setState({
-      firstName: "",
-      lastName: ""
-    });
-  };
 
 
-  render() {
-    return (
-      <div>
-        <Button variant="outlined" className="text-right" onClick={this.handleClickOpen}>
-          Create Account
+
+
+export default class FormDialog extends React.Component {
+
+
+
+    state = {
+        open: false,
+        users: []
+    };
+
+    handleClickOpen = () => {
+        this.setState({ open: true });
+    };
+
+    handleClose = () => {
+        this.setState({ open: false });
+    };
+
+    componentDidMount() {
+        axios.get("/users")
+            .then(res => {
+                const user = res.data;
+                this.setState({ user });
+            })
+    };
+
+    handleInputChange = event => {
+        const{ name, value } = event.target;
+        this.setState({
+            [name]: value
+        });
+    };
+
+
+    handleSubmit = event => {
+        event.preventDefault();
+
+        const user = {
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
+            username: this.state.username,
+            password: this.state.password,
+            email: this.state.email,
+        };
+
+        axios.post("/post/users",  user )
+            .then(res => {
+                console.log(res);
+                console.log(res.data);
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    };
+
+    
+
+
+    render() {
+        return (
+            <div>
+                <Button variant="outlined" className="text-right" onClick={this.handleClickOpen}>
+                    Create Account
         </Button>
-        <Dialog
-          open={this.state.open}
-          onClose={this.handleClose}
-          aria-labelledby="form-dialog-title"
-        >
-          <DialogTitle id="form-dialog-title">Create Account</DialogTitle>
-          <DialogContent>
-            <DialogContentText>
-              To create an Account, please enter your first name, last name, a user name, a password, and your email address.
+                <Dialog
+                    open={this.state.open}
+                    onClose={this.handleClose}
+                    aria-labelledby="form-dialog-title"
+                >
+                    <DialogTitle id="form-dialog-title">Create Account</DialogTitle>
+                    <DialogContent>
+                        <DialogContentText>
+                            To create an Account, please enter your First Name, Last Name, a User Name, and a Password.
             </DialogContentText>
-            <TextField
-              autoFocus
-              margin="dense"
-              id="firstName"
-              label="First Name"
-              type="string"
-              fullWidth
-            />
-            <TextField
-              autoFocus
-              margin="dense"
-              id="lastName"
-              label="Last Name"
-              type="string"
-              fullWidth
-            />
-            <TextField
-              autoFocus
-              margin="dense"
-              id="username"
-              label="User Name"
-              type="string"
-              fullWidth
-            />
-            <TextField
-              autoFocus
-              margin="dense"
-              id="password"
-              label="Password"
-              type="password"
-              fullWidth
-            />
-            <TextField
-              autoFocus
-              margin="dense"
-              id="email"
-              label="Email"
-              type="string"
-              fullWidth
-            />
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={this.handleClose} color="primary">
-              Cancel
-            </Button>
-            {/* MISSY: added code to send data to the database */}
-            <Button onClick={this.handleClose} color="primary">
-              Create Account
-            </Button>
-          </DialogActions>
-        </Dialog>
-      </div>
-    );
-  }
+
+            <form onSubmit={this.handleSubmit}>
+                <TextField
+                    autoFocus
+                    margin="dense"
+                    label="First Name"
+                    type="string"
+                    name="firstName"
+                    value={this.state.firstName}
+                    onChange= {this.handleInputChange}
+                    fullWidth
+                />
+                <TextField
+                    autoFocus
+                    margin="dense"
+                    id="lastNamedb"
+                    label="Last Name"
+                    type="string"
+                    name="lastName"
+                    value={this.state.lastName}
+                    onChange= {this.handleInputChange}
+                    fullWidth
+                />
+                <TextField
+                    autoFocus
+                    margin="dense"
+                    id="usernamedb"
+                    label="User Name"
+                    type="string"
+                    name="username"
+                    value={this.state.username}
+                    onChange= {this.handleInputChange}
+                    fullWidth
+                />
+                <TextField
+                    autoFocus
+                    margin="dense"
+                    id="passworddb"
+                    label="password"
+                    type="string"
+                    name="password"
+                    value={this.state.password}
+                    onChange= {this.handleInputChange}
+                    fullWidth
+                    type="password"
+                />
+                <TextField
+                    autoFocus
+                    margin="dense"
+                    id="emaildb"
+                    label="Email Adress"
+                    name="email"
+                    value={this.state.email}
+                    onChange= {this.handleInputChange}
+                    type="string"
+                    fullWidth
+                />
+
+            </form>
+            </DialogContent>
+
+
+
+
+            <DialogActions>
+                <Button onClick={this.handleClose} color="primary">
+                    Cancel
+                </Button>
+                <Button onClick={this.handleSubmit} color="primary">
+                    Create Account
+        {/* Add code to send data to the database */}
+                </Button>
+            </DialogActions>
+                </Dialog>
+            </div>
+        );
+    }
 }
-
-axios.post("/users", {
-  firstName: 'this.firstName',
-  lastName: 'this.lastName',
-  username: 'this.username',
-  password: 'this.password',
-  email: 'this.email'
-});
-
-export default CreateAccount;
