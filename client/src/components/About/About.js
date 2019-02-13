@@ -117,7 +117,7 @@ const cards = [
     {
         img: taePoodlePic,
         title: "Tae and Kong",
-        text: "Text for Tae and his poodle's story."
+        text: "Once you have had a wonderful dog, a life without one, is a life diminished. Quote by Dean Koontz (author, Whispers)"
     },
     {
         img: colinWheatenPic,
