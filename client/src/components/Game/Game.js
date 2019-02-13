@@ -46,7 +46,7 @@ const buttonStyle = {
   display: 'block',
   margin: '16px auto',
   padding: '8px 16px',
-  background: 'teal',
+  background: '#2e7d32',
   flexDirection: 'row'
 }
 
@@ -223,7 +223,7 @@ class Tiles extends Component {
         <button style={buttonStyle}
           onClick={this.handleButtonClick}
         >
-          {solved ? 'Start' : 'Restart'}
+          {solved ? 'START' : 'RESTART'}
         </button>
       </div>
     )
