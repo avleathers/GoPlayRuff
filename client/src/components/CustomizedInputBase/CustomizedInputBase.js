@@ -7,7 +7,7 @@ import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
-import DirectionsIcon from '@material-ui/icons/Directions';
+// import DirectionsIcon from '@material-ui/icons/Directions';
 
 const styles = {
   root: {
@@ -70,12 +70,12 @@ class CustomizedInputBase extends Component{
       </IconButton>
       <Divider
         className={classes.divider} />
-      <IconButton
+      {/* <IconButton
         color="primary"
         className={classes.iconButton}
         aria-label="Directions">
         <DirectionsIcon />
-      </IconButton>
+      </IconButton> */}
     </Paper>
   )
   }
