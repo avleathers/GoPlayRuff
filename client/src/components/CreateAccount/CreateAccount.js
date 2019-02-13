@@ -27,14 +27,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import axios from 'axios';
 
-
-
-
-
-
 export default class FormDialog extends React.Component {
-
-
 
     state = {
         open: false,
@@ -85,9 +78,6 @@ export default class FormDialog extends React.Component {
                 console.log(err);
             })
     };
-
-    
-
 
     render() {
         return (
@@ -165,9 +155,6 @@ export default class FormDialog extends React.Component {
 
             </form>
             </DialogContent>
-
-
-
 
             <DialogActions>
                 <Button onClick={this.handleClose} color="primary">
