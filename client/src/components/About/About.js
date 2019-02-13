@@ -26,12 +26,6 @@ const styles = theme => ({
     appBar: {
         display: 'flex',
         position: 'sticky',
-<<<<<<< HEAD
-        background: 'linear-gradient(to left bottom, #66bb6a,#2e7d32, #66bb6a)',        
-        paddingTop: 20,
-        paddingBottom: 10,
-        paddingRight: 10,
-=======
         background: '#66bb6a',
         background: 'linear-gradient(to left bottom, #66bb6a,#2e7d32, #66bb6a)',
         paddingTop: 50,
@@ -42,7 +36,6 @@ const styles = theme => ({
         flexDirection: 'row',
         align: 'right',
         justify: 'flex-end',
->>>>>>> origin/LoriS
     },
 
     heroUnit: {
