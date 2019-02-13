@@ -76,7 +76,7 @@ app.get("/lorizdata", function(req, res) {
   });
 
 // Route for getting all restaurants from the db
-app.get("/go/search", function(req, res) {
+app.get("/go/restaurants", function(req, res) {
     // Grab every document in the search restaurants collection
     db.Search.find({})
       .then(function(dbSearch) {
@@ -87,19 +87,6 @@ app.get("/go/search", function(req, res) {
         res.json(err);
       });
   });
-
-// Route to post our 20 dog-friendly restaurants based on location
-app.post("/go/restaurants", function (req, res) {
-    restaurant = new Search(req.body);
-
-    db.Search.create(restaurant)
-        .then(function(dbSearch) {
-            res.json(dbSearch);
-        })
-        .catch(function(err) {
-            res.json(err);
-        })
-})
 
 // Route for getting all restaurants from the db based on location
 app.get("/restaurants/:id", function(req, res) {
