@@ -25,7 +25,9 @@ const styles = theme => ({
         display: 'flex',
         position: 'sticky',
         background: 'linear-gradient(to left bottom, #66bb6a,#2e7d32, #66bb6a)',
-        paddingTop: 50,
+        paddingTop: 20,
+        paddingBottom: 10,
+        paddingRight:10,
     },
     
     menuButton: {
@@ -36,7 +38,7 @@ const styles = theme => ({
     },
 
     heroUnit: {
-        background: '#c8e6c9',
+        background: 'linear-gradient(to right bottom, #e8f5e9, #81c784, #e8f5e9)',
     },
     heroContent: {
         maxWidth: 600,
@@ -55,7 +57,7 @@ const styles = theme => ({
     },
     cardGrid: {
         padding: `${theme.spacing.unit * 8}px 0`,
-        background: '#e0e0e0',
+        background: 'linear-gradient(to right top, #e8f5e9, #c8e6c9, #e8f5e9)',
     },
     card: {
         height: '100%',
@@ -90,17 +92,17 @@ const cards = [
     {
         img: lorisLabsPic,
         title: "Lori's  Labs",
-        text: "The 2 brown labs are my grand-dogs. Jude and Buddy. Leo is a 10 year old rescue from Ohio, is the guy with his tongue out.  He has a new titanium plated in his knee.  Bronco is the lab on my left and his brother buster to my right scratching."
+        text: "I frequently can be seen walking (or driving) my 3 labs: 3 yr old puppies Bronco & Buster, 10 yr old rescue Leo from Ohio (has a titanium plate in back left knee from meniscus tear) + 2 grand-dogs Jude (4) & Buddy (3). They LOVE playing fetch, ALL water sports and going camping. Life is RUFF!!"
     },
     {
         img: taePoodlePic,
         title: "Tae and Kong",
-        text: "Text for Tae and his poodle's story."
+        text: "Kong came into our lives 10 years ago, 2009. It was 2 months after our last dog Jjong  passed away. My mom decided not to have any pet because of the pain she has to go through when one of family members suffers or eventually dies. About two months after JJong passed away, I brought Kong from my friend's house (She was 2 weeks old.) My mom could not help but be willing to accept her right away. Thankfully, Kong is in a really healthy condition although she is turning to 10.  She is one of the biggest parts of our family."
     },
     {
         img: colinWheatenPic,
         title: "Colin and Keeva",
-        text: "Text for Colin and Keeva's story."
+        text: "I got Keeva when I was in high school. She has been a loyal family member ever since. Even when I went away to college I had to come back at least once a week so that she did not get depressed."
     }
 ];
 

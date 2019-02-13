@@ -12,7 +12,7 @@ const App = () => (
   <div className="container-fluid mainContainer">
   
     <About />
-    <Timer />
+    {/* <Timer /> */}
     <Game />
     <Resources />
     <Footer />
