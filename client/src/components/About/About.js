@@ -18,31 +18,30 @@ import colinWheatenPic from "./Assets/ColinWheaten.jpg";
 import CreateAccount from "../CreateAccount";
 import SignIn from "../SignIn";
 import Divider from '@material-ui/core/Divider';
+// import ReactDOM from 'react-dom';
+// import AnchorLink from "../AnchorLink";
 
 
 const styles = theme => ({
     appBar: {
         display: 'flex',
         position: 'sticky',
-        background: '#66bb6a',
-        paddingTop: 50,
-    },
-    
-    menuButton: {
-        display: 'flex',
-        flexDirection: 'row',
-        align: 'right',
-        justify: 'flex-end',
+        background: 'linear-gradient(to left bottom, #66bb6a,#2e7d32, #66bb6a)',        
+        paddingTop: 20,
+        paddingBottom: 10,
+        paddingRight: 10,
     },
 
     heroUnit: {
-        background: '#c8e6c9',
+        background: 'linear-gradient(to right bottom, #e8f5e9, #81c784, #e8f5e9)',  
     },
+
     heroContent: {
         maxWidth: 600,
         margin: '0 auto',
         padding: `${theme.spacing.unit * 4}px 0 ${theme.spacing.unit * 3}px 0`,
     },
+
     layout: {
         width: 'auto',
         marginLeft: theme.spacing.unit * 3,
@@ -55,7 +54,8 @@ const styles = theme => ({
     },
     cardGrid: {
         padding: `${theme.spacing.unit * 8}px 0`,
-        background: '#e0e0e0',
+        background: 'linear-gradient(to right top, #e8f5e9, #c8e6c9, #e8f5e9)',
+        // background: '#e8f5e9',
     },
     card: {
         height: '100%',
@@ -75,17 +75,39 @@ const styles = theme => ({
         backgroundColor: '#c8e6c9',
     },
 
-    footer: {
-        backgroundColor: 'green',
-        padding: theme.spacing.unit * 6,
+    timer: {
+        align: 'center',
     },
+
 });
 
+// const SmoothScroll = () => (
+//     <div>
+//       <AnchorLink href='#go'>Go!</AnchorLink>
+//       <AnchorLink href='#play'>Play!</AnchorLink>
+//       <AnchorLink href='#ruff'>Ruff!</AnchorLink>
+   
+//       <section id='go'>
+//       <h2>Go!</h2>
+//       </section>
+//       <section id='play'>
+//       <h2>Play!</h2>
+//       </section>
+//       <section id='ruff'>
+//         <h2>Ruff!</h2>
+//       </section>
+//     </div>
+//   )
+   
+//   ReactDOM.render(
+//     <SmoothScroll />,
+//     document.getElementById('content')
+//   )
 const cards = [
     {
         img: missyRustyPic,
         title: "Missy and Rusty",
-        text: "Rusty is not a rescue, but he did rescue me. He came into our lives during a very sad time right after the loss of my Mom and our first Wire Fox Terrier. Rusty joined our family within a week and it was truly love at first site. Wires are so much fun and guaranteed to put a smile on your face and make you laugh. Rusty is a very sweet dog and loves to cuddle and curl up in Mommy or Daddy’s lap. I hope to always have a loving Wire Fox Terrier fur-child."
+        text: "Rusty is not a rescue, but he did rescue me. He came into our lives during a very sad time right after the loss of my Mom and our first Wire Fox Terrier. Rusty joined our family within a week and it was truly love at first site. Rusty is a very sweet dog and loves to cuddle and curl up in Mommy or Daddy’s lap. I hope to always have a loving Wire Fox Terrier fur-child."
     },
     {
         img: lorisLabsPic,
@@ -116,7 +138,8 @@ function About(props) {
                     container
                     direction="row"
                     justify="center">
-                    <Typography component="h1" variant="h2" display="inline-block" color="textPrimary">
+                    <Typography component="h3" variant="h1" 
+                    display="inline-block" color="textPrimary">
                         Go! Play! Ruff!
                     </Typography>
                         <Grid justify="flex-end" // Add it here :)

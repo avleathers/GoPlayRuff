@@ -6,7 +6,7 @@ import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
     footer: {
-        backgroundColor: '#66bb6a',
+        background: 'linear-gradient(to left bottom, #66bb6a,#2e7d32, #66bb6a)',   
         padding: theme.spacing.unit * 6,
     },
 });
