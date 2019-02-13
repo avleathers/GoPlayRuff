@@ -17,7 +17,6 @@ import { withStyles } from "@material-ui/core/styles";
 
 // My files below
 import CustomizedInputBase from "../CustomizedInputBase";
-import Search from "../Search";
 import axios from "axios";
 
 const styles = theme => ({
