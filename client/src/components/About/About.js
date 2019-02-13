@@ -112,7 +112,7 @@ const cards = [
     {
         img: lorisLabsPic,
         title: "Lori's  Labs",
-        text: "TI frequently can be seen walking (or driving) my 3 labs: 3 yr old puppies Bronco& Buster, 10 yr old rescue Leo from Ohio (has a titanium plate in back left knee from meniscus tear) + 2 grand-dogs Jude (4) & Buddy (3). They LOVE playing fetch, ALL water sports and going camping. Life is RUFF!!"
+        text: "TI frequently can be seen walking (or driving) my 3 labs: 3 yr old puppies Bronco & Buster, 10 yr old rescue Leo from Ohio (has a titanium plate in back left knee from meniscus tear) + 2 grand-dogs Jude (4) & Buddy (3). They LOVE playing fetch, ALL water sports and going camping. Life is RUFF!!"
     },
     {
         img: taePoodlePic,
