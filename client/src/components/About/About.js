@@ -130,7 +130,7 @@ const cards = [
     {
         img: colinWheatenPic,
         title: "Colin and Keeva",
-        text: "Text for Colin and Keeva's story."
+        text: "I got Keeva when I was in high school. She has been a loyal family memeber ever since. Even when I went away to college I had to come back at least once a week so that she did not get depressed."
     }
 ];
 
