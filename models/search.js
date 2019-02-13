@@ -16,7 +16,8 @@ const SearchSchema = new Schema({
     },
     name: {
         type: String,
-        trim: true
+        trim: true,
+        unique: true
     },
 
     rating: {

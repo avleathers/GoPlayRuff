@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "main.css": "/static/css/main.be4e37f9.chunk.css",
   "main.js": "/static/js/main.780c6156.chunk.js",
   "main.js.map": "/static/js/main.780c6156.chunk.js.map",
@@ -8,6 +9,17 @@
   "static/js/2.0f2cdde3.chunk.js.map": "/static/js/2.0f2cdde3.chunk.js.map",
   "index.html": "/index.html",
   "precache-manifest.acfe3f5939d98352e8d0f6f41d0a8b97.js": "/precache-manifest.acfe3f5939d98352e8d0f6f41d0a8b97.js",
+=======
+  "main.css": "/static/css/main.5eafb3d5.chunk.css",
+  "main.js": "/static/js/main.6c98db52.chunk.js",
+  "main.js.map": "/static/js/main.6c98db52.chunk.js.map",
+  "runtime~main.js": "/static/js/runtime~main.fdfcfda2.js",
+  "runtime~main.js.map": "/static/js/runtime~main.fdfcfda2.js.map",
+  "static/js/2.f81589a1.chunk.js": "/static/js/2.f81589a1.chunk.js",
+  "static/js/2.f81589a1.chunk.js.map": "/static/js/2.f81589a1.chunk.js.map",
+  "index.html": "/index.html",
+  "precache-manifest.ff0c5bea7e8dbf34c5df1e560b6eed45.js": "/precache-manifest.ff0c5bea7e8dbf34c5df1e560b6eed45.js",
+>>>>>>> origin/LoriS
   "service-worker.js": "/service-worker.js",
   "static/css/main.be4e37f9.chunk.css.map": "/static/css/main.be4e37f9.chunk.css.map",
   "static/media/ColinWheaten.jpg": "/static/media/ColinWheaten.2747a9dd.jpg",

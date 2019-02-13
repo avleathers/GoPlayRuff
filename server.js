@@ -2,11 +2,10 @@ var express = require("express");
 var logger = require("morgan");
 var mongoose = require("mongoose");
 // Our scraping tools
+// Axios is a promised-based http library, similar to jQuery's Ajax method
 // It works on the client and on the server
-
 var axios = require("axios");
 var path = require("path");
-
 
 // Require all models
 var db = require("./models");
@@ -23,15 +22,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 
-// Make public a static folder
-app.use(express.static("public"));
-//////////Routes//////////
-require("./routes/account-api")(app);
-require("./routes/scrapping-api")(app);
-
-
-
-////////////
 
 if (process.env.NODE_ENV === "production") {
  app.use(express.static("client/build"));
@@ -39,7 +29,6 @@ if (process.env.NODE_ENV === "production") {
   
 // Connect to the Mongo DB via production server or development
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/goplayruff");
-
 
 ////////////////////// Routes////////////////////////
 
@@ -87,7 +76,7 @@ app.get("/lorizdata", function(req, res) {
   });
 
 // Route for getting all restaurants from the db
-app.get("/go/search", function(req, res) {
+app.get("/go/restaurants", function(req, res) {
     // Grab every document in the search restaurants collection
     db.Search.find({})
       .then(function(dbSearch) {
@@ -98,19 +87,6 @@ app.get("/go/search", function(req, res) {
         res.json(err);
       });
   });
-
-// Route to post our 20 dog-friendly restaurants based on location
-app.post("/go/restaurants", function (req, res) {
-    restaurant = new Search(req.body);
-
-    db.Search.create(restaurant)
-        .then(function(dbSearch) {
-            res.json(dbSearch);
-        })
-        .catch(function(err) {
-            res.json(err);
-        })
-})
 
 // Route for getting all restaurants from the db based on location
 app.get("/restaurants/:id", function(req, res) {
@@ -149,10 +125,6 @@ app.get("/users", function(req, res) {
       res.json(err);
     });
  })
-
-
-
-
 
 // Start the server
 // Define any API routes before this runs

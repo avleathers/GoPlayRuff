@@ -4,8 +4,13 @@ import About from "./components/About";
 import Game from "./components/Game";
 // import Resources from "./components/Resources";
 import Footer from "./components/Footer";
+<<<<<<< HEAD
 //import Resources from "./components/Resources";
 
+=======
+import Resources from "./components/Resources";
+import Timer from "./components/timer"
+>>>>>>> origin/LoriS
 
 
 const App = () => (
@@ -13,7 +18,7 @@ const App = () => (
   
     <About />
     <Game />
-    {/* <Resources /> */}
+    <Resources />
     <Footer />
   </div>
 );
