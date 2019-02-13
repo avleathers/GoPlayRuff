@@ -144,32 +144,6 @@ class Tile extends Component {
       width,
       height
     }
-    // class Timer extends React.Component {
-    //   state = {
-    //     status: false,
-    //     runningTime: 0
-    //   };
-
-
-    //   handleClick = () => {
-    //     if (this.state.status) {
-    //       clearInterval(this.timer);
-    //     } else {
-    //       const startTime = Date.now() - this.state.runningTime;
-    //       this.timer = setInterval(() => {
-    //         this.setState({ runningTime: Date.now() - startTime });
-    //       });
-    //     }
-    //   };
-
-
-
-    //   resetTimer = () => {
-    //     this.setState({ runningTime: 0, status: false });
-    //   };
-
-
-    // };
 
     return (
       <Motion style={motionStyle} >
@@ -256,12 +230,48 @@ class Tiles extends Component {
   }
 }
 
+// class Timer extends React.Component {
+//   constructor(props){
+//     super(props)
+//     this.state = {
+//       time: 0,
+//       start: 0
+//     }
+//     // this.startTimer = this.startTimer.bind(this)
+//     // this.stopTimer = this.stopTimer.bind(this)
+//     // this.resetTimer = this.resetTimer.bind(this)
+//   };
+    
+// //   startTimer() {
+// //     this.setState({
+// //       time: this.state.time,
+// //       start: Date.now()
+// //     })
+// //     this.timer = setInterval(() => this.setState({
+// //       time: Date.now() - this.state.start
+// //     }), 1)
+// //     console.log("start")
+// //   }
+// //   stopTimer() {
+// //     clearInterval(this.timer)
+// //     console.log("stop")
+// //   }
+// //   resetTimer() {
+// //     this.setState({time: 0})
+// //     console.log("reset")
+// //   }
+// };
+
 class Puzzle extends Component {
   render() {
     return (
+      <div>
+      {/* <Timer/> */}
       <Tiles rows={3} cols={3} hole={8}
         width={300} height={300}
       />
+      
+      </div>
     )
   }
 }
