@@ -1,10 +1,8 @@
 
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import classNames from "classnames";
 import AppBar from "@material-ui/core/AppBar";
 import Button from "@material-ui/core/Button";
-import CameraIcon from "@material-ui/icons/PhotoCamera";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
@@ -120,9 +118,8 @@ class Resources extends Component {
                 color="textSecondary"
                 paragraph
               >
-                Select where you want to go in or
-                near that location to see 20 websites by picture,
-                restaurant name, summary and a View button to go directly to the website.
+                Select where to go in or near that location to see 20 websites by picture,
+                restaurant name and summary. Go directly to the website via View button.
               </Typography>
               <div className={classes.heroButtons}>
                 <Grid container spacing={16} justify="center">
@@ -137,7 +134,7 @@ class Resources extends Component {
           </div>
           <div className={classNames(classes.layout, classes.cardGrid)}>
             {/* End hero unit */}
-            <Grid container spacing={20}>
+            <Grid container spacing={40}>
               {this.state.restaurants.map(card => (
                 <Grid item key={card} sm={6} md={4} lg={3}>
                   <Card className={classes.card}>

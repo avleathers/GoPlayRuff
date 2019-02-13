@@ -70,12 +70,12 @@ class CustomizedInputBase extends Component{
       </IconButton>
       <Divider
         className={classes.divider} />
-      <IconButton
+      {/* <IconButton
         color="primary"
         className={classes.iconButton}
         aria-label="Directions">
         <DirectionsIcon />
-      </IconButton>
+      </IconButton> */}
     </Paper>
   )
   }
