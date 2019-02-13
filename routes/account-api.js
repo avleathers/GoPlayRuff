@@ -1,5 +1,5 @@
 // Route for creating account
-var db = require("./models");
+var db = require("../models");
 var axios = require("axios");
 
 module.exports = function(app) { 
