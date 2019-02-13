@@ -71,7 +71,7 @@ app.get("/lorizdata", function(req, res) {
 
     }
       // Send a message to the client (Test only)
-      res.send("Scrape Complete");
+      // res.send("Scrape Complete");
     });
   });
 

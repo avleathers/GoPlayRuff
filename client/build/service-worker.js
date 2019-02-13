@@ -15,9 +15,13 @@ importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox
 
 importScripts(
 <<<<<<< HEAD
+<<<<<<< HEAD
   "/precache-manifest.acfe3f5939d98352e8d0f6f41d0a8b97.js"
 =======
   "/precache-manifest.ff0c5bea7e8dbf34c5df1e560b6eed45.js"
+>>>>>>> origin/LoriS
+=======
+  "/precache-manifest.5c781af5cec4b5405c60e0eaa13e9063.js"
 >>>>>>> origin/LoriS
 );
 
