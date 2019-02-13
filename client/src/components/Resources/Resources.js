@@ -19,13 +19,15 @@ import axios from "axios";
 
 const styles = theme => ({
   appBar: {
-    position: "relative"
+    position: "relative",
+    background: 'linear-gradient(to left bottom, #66bb6a,#2e7d32, #66bb6a)'
   },
   icon: {
     marginRight: theme.spacing.unit * 2
   },
   heroUnit: {
-    backgroundColor: theme.palette.background.paper
+    // backgroundColor: theme.palette.background.paper
+    background: 'linear-gradient(to right bottom, #e8f5e9, #81c784, #e8f5e9)',
   },
   heroContent: {
     maxWidth: 600,
@@ -164,7 +166,7 @@ class Resources extends Component {
           </div>
         </main>
         {/* Footer */}
-        <footer className={classes.footer}>
+        {/* <footer className={classes.footer}>
           <Typography variant="h6" align="center" gutterBottom>
             Footer
           </Typography>
@@ -176,7 +178,7 @@ class Resources extends Component {
           >
            Built by dog lovers to spend more time with their dogs!
           </Typography>
-        </footer>
+        </footer> */}
         {/* End footer */}
       </React.Fragment>
     );

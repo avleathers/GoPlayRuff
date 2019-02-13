@@ -25,6 +25,7 @@ const styles = theme => ({
         display: 'flex',
         position: 'sticky',
         background: '#66bb6a',
+        background: 'linear-gradient(to left bottom, #66bb6a,#2e7d32, #66bb6a)',
         paddingTop: 50,
     },
     
