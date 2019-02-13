@@ -23,7 +23,7 @@ function Footer(props) {
                     Go! Play! Ruff!
                 </Typography>
                 <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-                “Once you have had a wonderful dog, a life without one, is a life diminished.” Dean Koontz (author, Whispers)
+                Built by dog lovers to spend more time with their dogs!
         </Typography>
             </footer>
             {/* End footer */}
