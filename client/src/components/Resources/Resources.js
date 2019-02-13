@@ -156,7 +156,7 @@ class Resources extends Component {
                     </CardContent>
                     <CardActions>
                       <Button size="small" color="primary">
-                        <a href={card.website}>View </a> 
+                        <a href={card.website} target="_blank">View </a> 
                       </Button>
                     </CardActions>
                   </Card>
