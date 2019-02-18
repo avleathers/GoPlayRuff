@@ -237,7 +237,7 @@ class Stopwatch extends Component {
     status: false,
     runningTime: 0
   };
-  handleClick = () => {
+  handleStart = () => {
     this.setState(state => {
       if (state.status) {
         clearInterval(this.timer);
@@ -260,7 +260,8 @@ class Stopwatch extends Component {
     return (
       <div>
         <p>{runningTime}ms</p>
-
+        <button onClick={this.handleStart}>{status ? 'Stop' : 'Start'}</button>
+        <button onClick={this.handleReset}>Reset</button>
       </div>
     );
   }
@@ -273,11 +274,11 @@ class Puzzle extends Component {
   render() {
     return (
       <div>
-      <Stopwatch/>
-      <Tiles rows={3} cols={3} hole={8}
-        width={300} height={300}
-      />
-      
+        <Stopwatch />
+        <Tiles rows={3} cols={3} hole={8}
+          width={300} height={300}
+        />
+
       </div>
     )
   }
