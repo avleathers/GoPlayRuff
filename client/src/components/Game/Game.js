@@ -230,43 +230,50 @@ class Tiles extends Component {
   }
 }
 
-// class Timer extends React.Component {
-//   constructor(props){
-//     super(props)
-//     this.state = {
-//       time: 0,
-//       start: 0
-//     }
-//     // this.startTimer = this.startTimer.bind(this)
-//     // this.stopTimer = this.stopTimer.bind(this)
-//     // this.resetTimer = this.resetTimer.bind(this)
-//   };
-    
-// //   startTimer() {
-// //     this.setState({
-// //       time: this.state.time,
-// //       start: Date.now()
-// //     })
-// //     this.timer = setInterval(() => this.setState({
-// //       time: Date.now() - this.state.start
-// //     }), 1)
-// //     console.log("start")
-// //   }
-// //   stopTimer() {
-// //     clearInterval(this.timer)
-// //     console.log("stop")
-// //   }
-// //   resetTimer() {
-// //     this.setState({time: 0})
-// //     console.log("reset")
-// //   }
-// };
+// <--------React Stopwatch-------->
+
+class Stopwatch extends Component {
+  state = {
+    status: false,
+    runningTime: 0
+  };
+  handleClick = () => {
+    this.setState(state => {
+      if (state.status) {
+        clearInterval(this.timer);
+      } else {
+        const startTime = Date.now() - this.state.runningTime;
+        this.timer = setInterval(() => {
+          this.setState({ runningTime: Date.now() - startTime });
+        });
+      }
+      return { status: !state.status };
+    });
+  };
+  handleReset = () => {
+    clearInterval(this.timer); // new
+    this.setState({ runningTime: 0, status: false });
+  };
+
+  render() {
+    const { status, runningTime } = this.state;
+    return (
+      <div>
+        <p>{runningTime}ms</p>
+
+      </div>
+    );
+  }
+}
+
+// render the puzzle and stopwatch as a component 
+
 
 class Puzzle extends Component {
   render() {
     return (
       <div>
-      {/* <Timer/> */}
+      <Stopwatch/>
       <Tiles rows={3} cols={3} hole={8}
         width={300} height={300}
       />
