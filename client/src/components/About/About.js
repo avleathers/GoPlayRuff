@@ -92,12 +92,12 @@ const cards = [
     {
         img: lorisLabsPic,
         title: "Lori's  Labs",
-        text: "I can be seen walking (or driving) my 3 labs to the park twice/day We have 3 yr old puppies Bronco & Buster and a 10 yr old rescue from Ohio, Leo (with a titanium plate in back left knee). Occasionally will have our 2 grand-dogs Jude (4) & Buddy (3). They all LOVE playing fetch, ANY water sports and going camping. Life is RUFF!!"
+        text: "I can be seen walking (or driving) my 3 labs to the park twice/day. We have 3 yr old puppies Bronco & Buster and a 10 yr old rescue from Ohio, Leo (with a titanium plate in back left knee). Occasionally we also have our 2 grand-dogs Jude (4) & Buddy (3). They all LOVE playing fetch, ANY water sports and going camping. Life is RUFF!!"
     },
     {
         img: taePoodlePic,
         title: "Tae and Kong",
-        text: "Kong came into our lives 10 years ago, 2 months after our last dog Jjong  passed away. My mom decided not to have another pet because of the pain she goes through when a pet suffers or dies. I brought Kong (2 weeks old) over from my friend's house and my mom could not help but accept her right away. Thankfully, Kong is in a really healthy condition although she is turning to 10.  She is one of the biggest parts of our family!"
+        text: "Kong came into our lives 10 years ago, 2 months after our last dog Jjong  passed away. My mom decided not to have another pet because of the pain she goes through when a pet suffers or dies. I brought Kong (2 weeks old) over from my friend's house and my mom could not help but accept her right away. Thankfully, Kong is in a really healthy condition although she is turning 10.  She is one of the biggest parts of our family!"
     },
     {
         img: colinWheatenPic,
@@ -139,7 +139,7 @@ function About(props) {
                 <div className={classes.heroUnit}>
                     <div className={classes.heroContent}>
                         <Typography variant="h6" align="center" color="textSecondary" paragraph>
-                            Go! Play! Ruff! is a place where people who love dogs can find great dog-friendly resources, and play a fun dog puzzle game.
+                            Go! Play! Ruff! is a website for dog lovers to find dog-friendly places to go, play a dog tile puzzle game and learn about the creators' dogs.
                         </Typography>
                     </div>
                 </div>
